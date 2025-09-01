@@ -200,18 +200,19 @@ section h2 i {
 /* Chatbot */
 #chatbot {
   position: fixed;
-  bottom: -700px;
+  bottom: 20px;
   right: 20px;
   width: 450px;
   height: 700px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: none;
   transition: bottom 0.5s ease;
   z-index: 200;
 }
 #chatbot.active {
-  bottom: 15px;
+  display: flex;
 }
 .chatbot {
   display: flex;
