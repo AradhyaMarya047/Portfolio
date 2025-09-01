@@ -3,29 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My AI Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Aradhya Marya | AI Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
+  <!-- Navbar -->
+  <nav>
+    <h1>Aradhya Marya</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
   <header>
-    <h1>Hi, I’m Aradhya Marya</h1>
-    <p>3rd Year AI Student | Durham College</p>
+    <h2>Hi, I’m Aradhya 👋</h2>
+    <p>AI Student | ML Enthusiast | Honour Roll Scholar</p>
+    <p>3rd-Year Honours Bachelor in Artificial Intelligence @ Durham College</p>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>I’m pursuing an Honours Bachelor in Artificial Intelligence. I’m passionate about ML and AI projects.</p>
+  <!-- About -->
+  <section id="about">
+    <h3>About Me</h3>
+    <p>
+      I’m a 3rd-year student pursuing an Honours Bachelor in AI at Durham College, Oshawa.
+      Passionate about applied ML and NLP, I’m seeking part-time opportunities to apply my
+      skills and gain industry experience.
+    </p>
   </section>
 
-  <section>
-    <h2>Projects</h2>
+  <!-- Skills -->
+  <section id="skills">
+    <h3>Skills</h3>
     <ul>
-      <li><b>English → French Translator</b> (Python, googletrans)</li>
+      <li>Python, C++, Java</li>
+      <li>TensorFlow, PyTorch, Scikit-learn</li>
+      <li>Pandas, NumPy, Jupyter, Google Colab</li>
+      <li>Git, GitHub, VS Code, FastAPI</li>
+      <li>Machine Learning, NLP, Data Analysis</li>
     </ul>
   </section>
 
+  <!-- Projects -->
+  <section id="projects">
+    <h3>Projects</h3>
+    <article>
+      <h4>English → French Translator</h4>
+      <p>
+        A simple NLP-based tool to convert English text into French.
+      </p>
+      <p><b>Tech Stack:</b> Python, NLP, Googletrans API</p>
+      <a href="#">GitHub Link</a>
+    </article>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements">
+    <h3>Achievements</h3>
+    <ul>
+      <li>College Honour Roll (4 consecutive semesters)</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h3>Contact</h3>
+    <p>Email: <a href="mailto:aradhyamarya@gmail.com"><aradhyamarya@gmail.com/a></p>
+    <p>LinkedIn: <a href="#">linkedin.com/in/aradhya-marya-24aa01272</a></p>
+    <p>GitHub: <a href="#">https://github.com/AradhyaMarya047</a></p>
+  </section>
+
   <footer>
-    <p>Contact: your.email@example.com</p>
+    <p>© 2025 Aradhya Marya | Built with Python, HTML & CSS</p>
   </footer>
+
 </body>
 </html>
