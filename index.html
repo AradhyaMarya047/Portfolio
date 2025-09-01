@@ -55,92 +55,80 @@
       <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
     </div>
   </section>
-  <!-- Chatbot Section -->
-  <section id="chatbot">
-    <h2 style="text-align:center; margin-bottom:1rem;">Chatbot 🤖</h2>
-    <div class="chatbot">
-      <div class="chat-header">Ask Me Anything</div>
-      <div class="chat-messages" id="chat-messages"></div>
-      <input type="text" id="chat-input" placeholder="Type a message..." />
-      <button onclick="sendMessage()">Send</button>
-      <div class="quick-options">
-        <button onclick="quickAsk('hello')">Hello</button>
-        <button onclick="quickAsk('skills')">Skills</button>
-        <button onclick="quickAsk('projects')">Projects</button>
-        <button onclick="quickAsk('contact')">Contact</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Chatbot JS -->
-  <script>
-const chatMessages = document.getElementById('chat-messages');
-const chatInput = document.getElementById('chat-input');
-
-function sendMessage() {
-  const msg = chatInput.value.trim();
-  if (!msg) return;
-
-  displayResponse(msg);
-  chatInput.value = '';
-}
-
-function quickAsk(keyword) {
-  displayResponse(keyword);
-}
-
-function displayResponse(msg) {
-  // Clear previous messages
-  chatMessages.innerHTML = '';
-
-  // User message
-  const userMsg = document.createElement('p');
-  userMsg.textContent = msg;
-  userMsg.classList.add('user-msg');
-  chatMessages.appendChild(userMsg);
-
-  // Bot response
-  const botReply = document.createElement('p');
-  botReply.classList.add('bot-msg');
-  const text = msg.toLowerCase();
-
-  if (text.includes('hello') || text.includes('hi')) {
-    botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
-  } 
-  else if (text.includes('skills')) {
-    botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
-  } 
-  else if (text.includes('project') || text.includes('projects')) {
-    botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
-  } 
-  else if (text.includes('contact') || text.includes('email')) {
-    botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
-  } 
-  else if (text.includes('linkedin')) {
-    botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
-  } 
-  else if (text.includes('github')) {
-    botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
-  } 
-  else {
-    botReply.textContent = 'I am still learning! Try asking about skills, projects, or contact info.';
-  }
-
-  chatMessages.appendChild(botReply);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-</script>
+  
+  <!-- Contact Section -->
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a></p>
+  <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a></p>
 </section>
 
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a></p>
-    <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a></p>
+<!-- Chatbot Section -->
+<section id="chatbot">
+  <h2 style="text-align:center; margin-bottom:1rem;">Chatbot 🤖</h2>
+  <div class="chatbot">
+    <div class="chat-header">Ask Me Anything</div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <input type="text" id="chat-input" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+    <div class="quick-options">
+      <button onclick="quickAsk('hello')">Hello</button>
+      <button onclick="quickAsk('skills')">Skills</button>
+      <button onclick="quickAsk('projects')">Projects</button>
+      <button onclick="quickAsk('contact')">Contact</button>
+    </div>
+  </div>
+</section>
 
-  
-  </script>
+<!-- Chatbot JS -->
+<script>
+  const chatMessages = document.getElementById('chat-messages');
+  const chatInput = document.getElementById('chat-input');
+
+  function sendMessage() {
+    const msg = chatInput.value.trim();
+    if (!msg) return;
+    displayResponse(msg);
+    chatInput.value = '';
+  }
+
+  function quickAsk(keyword) {
+    displayResponse(keyword);
+  }
+
+  function displayResponse(msg) {
+    chatMessages.innerHTML = '';
+
+    const userMsg = document.createElement('p');
+    userMsg.textContent = msg;
+    userMsg.classList.add('user-msg');
+    chatMessages.appendChild(userMsg);
+
+    const botReply = document.createElement('p');
+    botReply.classList.add('bot-msg');
+    const text = msg.toLowerCase();
+
+    if (text.includes('hello') || text.includes('hi')) {
+      botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
+    } else if (text.includes('skills')) {
+      botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
+    } else if (text.includes('project') || text.includes('projects')) {
+      botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
+    } else if (text.includes('contact') || text.includes('email')) {
+      botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
+    } else if (text.includes('linkedin')) {
+      botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
+    } else if (text.includes('github')) {
+      botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
+    } else {
+      botReply.textContent = 'I am still learning! Try asking about skills, projects, or contact info.';
+    }
+
+    chatMessages.appendChild(botReply);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+</script>
 
 </body>
 </html>
