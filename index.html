@@ -22,51 +22,69 @@
     </div>
   </nav>
 
-  <!-- About Section -->
-  <section id="about">
+  <!-- Hero / About Section -->
+  <section class="hero" id="about">
     <h1>Hi, I’m Aradhya Marya</h1>
     <p>I am passionate about my work in Artificial Intelligence and enjoy applying AI and Machine Learning to solve practical problems. I am continually exploring projects involving NLP, translation, chatbots, and other AI-powered applications. I am seeking part-time opportunities and internships to enhance my skills and contribute effectively.</p>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills">
+  <section class="skills" id="skills">
     <h2>Skills</h2>
-    <p>My technical skills include Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, and Git & GitHub.</p>
+    <div class="skills-container">
+      <div class="skill-card">Python</div>
+      <div class="skill-card">HTML & CSS</div>
+      <div class="skill-card">Java</div>
+      <div class="skill-card">TensorFlow</div>
+      <div class="skill-card">PyTorch</div>
+      <div class="skill-card">Scikit-learn</div>
+      <div class="skill-card">Pandas & NumPy</div>
+      <div class="skill-card">Git & GitHub</div>
+    </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects">
+  <section class="projects" id="projects">
     <h2>Projects</h2>
-
     <div class="project-card">
-      <p><strong>English → French Translator:</strong> Real-time multilingual translation application. <span class="toggle-features">View Key Features</span></p>
-      <div class="project-features">
-        <ul>
-          <li>Supports multiple languages using Google Translator API and Transformer-based models (M2M100).</li>
-          <li>Automatic quality evaluation using BLEU score and Perplexity metrics.</li>
-          <li>Voice pronunciation support.</li>
-          <li>FastAPI-powered REST API with Swagger UI.</li>
-        </ul>
-      </div>
+      <h3>English → French Translator</h3>
+      <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
+      <p>Automatic quality evaluation using BLEU score and Perplexity metrics.</p>
+      <p>Voice pronunciation support and FastAPI-powered REST API with Swagger UI.</p>
+      <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
     </div>
-
   </section>
 
   <!-- Work Experience Section -->
-  <section id="work">
+  <section class="work-experience" id="work">
     <h2>Work Experience</h2>
-    <p>I work as a Produce Associate at Walmart (Part-Time) since March 2024. My responsibilities include teamwork, time management, reliability, customer service, and maintaining attention to detail.</p>
+    <div class="experience-card">
+      <h3>Produce Associate – Walmart (Part-Time)</h3>
+      <p>March 2024 – Present</p>
+      <p>Key Skills: Teamwork, Time Management, Reliability, Customer Service, Attention to Detail</p>
+      <p>Maintained high-quality standards in the produce department and developed strong organizational and collaborative skills.</p>
+    </div>
   </section>
 
   <!-- Education Section -->
-  <section id="education">
+  <section class="education" id="education">
     <h2>Education</h2>
-    <p>Durham College – Honours Bachelor in Artificial Intelligence, 3rd Year (Sept 2023 – Present)</p>
-    <p>Rigveda International School, Tohana, India – High School (2015 – 2022)</p>
+    <div class="education-container">
+      <div class="education-card">
+        <h3>Durham College</h3>
+        <p>Honours Bachelor in Artificial Intelligence</p>
+        <p>Sept 2023 – Present, 3rd Year</p>
+      </div>
+      <div class="education-card">
+        <h3>Rigveda International School, Tohana, India</h3>
+        <p>High School</p>
+        <p>2015 – 2022</p>
+      </div>
+    </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section class="contact" id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
     <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">Aradhya Marya</a></p>
@@ -94,7 +112,82 @@
   </section>
 
   <!-- JS -->
-  <script src="script.js"></script>
+  <script>
+    const chatSection = document.getElementById('chatbot');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+
+    // Toggle chatbot visibility
+    function toggleChatbot() {
+      chatSection.classList.toggle('active');
+    }
+
+    chatInput.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") sendMessage();
+    });
+
+    function sendMessage() {
+      const msg = chatInput.value.trim();
+      if (!msg) return;
+      displayResponse(msg);
+      chatInput.value = '';
+    }
+
+    function quickAsk(keyword) {
+      displayResponse(keyword);
+    }
+
+    function displayResponse(msg) {
+      chatMessages.innerHTML = '';
+
+      const userMsg = document.createElement('p');
+      userMsg.textContent = msg;
+      userMsg.classList.add('user-msg');
+      chatMessages.appendChild(userMsg);
+
+      const botReply = document.createElement('p');
+      botReply.classList.add('bot-msg');
+      const text = msg.toLowerCase();
+
+      // Chatbot logic
+      if (text.includes('hello') || text.includes('hi')) {
+        botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about my skills, projects, education, work experience, programming languages, AI knowledge, or contact info.';
+      } 
+      else if (text.includes('skills')) {
+        botReply.textContent = 'My skills include Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
+      } 
+      else if (text.includes('project') || text.includes('projects')) {
+        botReply.textContent = 'I built an English → French Translator with real-time multilingual translation, automatic evaluation metrics, voice pronunciation, and FastAPI REST API.';
+      } 
+      else if (text.includes('work') || text.includes('experience') || text.includes('job')) {
+        botReply.textContent = 'Work Experience: Produce Associate at Walmart (Part-Time) – Teamwork, Time Management, Reliability, Customer Service, Attention to Detail.';
+      } 
+      else if (text.includes('education')) {
+        botReply.textContent = 'Education: Durham College – Honours Bachelor in AI (3rd Year), Rigveda International School – High School.';
+      } 
+      else if (text.includes('contact') || text.includes('email')) {
+        botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
+      } 
+      else if (text.includes('linkedin')) {
+        botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
+      } 
+      else if (text.includes('github')) {
+        botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
+      }
+      else if (text.includes('language') || text.includes('languages')) {
+        botReply.textContent = 'Programming Languages: Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
+      }
+      else if (text.includes('ai')) {
+        botReply.textContent = 'I am passionate about AI. I work with Machine Learning, Natural Language Processing, translation systems, chatbots, and AI-powered applications.';
+      } 
+      else {
+        botReply.textContent = 'I am still learning! Try asking about skills, projects, work experience, education, programming languages, AI, or contact info.';
+      }
+
+      chatMessages.appendChild(botReply);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  </script>
 
 </body>
 </html>
