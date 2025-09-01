@@ -57,6 +57,7 @@ nav div a:hover {
   font-size: 1.2rem;
   margin-top: 1rem;
   max-width: 800px;
+  font-weight: 500;
 }
 
 /* Sections */
@@ -67,7 +68,7 @@ section {
   margin-bottom: 2rem;
 }
 
-/* Section Titles */
+/* Section Titles with icons */
 section h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -117,6 +118,25 @@ section h2 i {
 #projects i {
   margin-right: 8px;
   color: #1a73e8;
+  font-weight: bold;
+}
+.project-features {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.toggle-features {
+  display: inline-block;
+  margin: 8px 0;
+  color: #1a73e8;
+  cursor: pointer;
+  font-weight: 600;
+}
+.toggle-features:hover {
+  color: #fbbc05;
 }
 
 /* Work Experience */
@@ -180,7 +200,7 @@ section h2 i {
 /* Chatbot */
 #chatbot {
   position: fixed;
-  bottom: -600px;
+  bottom: -700px;
   right: 20px;
   width: 450px;
   height: 700px;
@@ -209,7 +229,7 @@ section h2 i {
   border-top-right-radius: 16px;
 }
 .chat-messages {
-  flex: 4;
+  flex: 5; 
   padding: 16px;
   overflow-y: auto;
   font-size: 1.0rem;
@@ -258,14 +278,7 @@ section h2 i {
 }
 .quick-options button {
   margin: 2px;
-  padding: 5px 9px;
-  font-size: 0.9rem;
-}
-.project-features {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto;
+  padding: 6px 10px; 
+  font-size: 0.85rem; 
+  border-radius: 12px;
 }
