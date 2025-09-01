@@ -5,6 +5,7 @@
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 body {
   background: #f9f9f9;
   color: #222;
@@ -37,7 +38,7 @@ nav div a:hover {
   color: #fbbc05;
 }
 
-/* Hero / About Me Section with corner bubbles */
+/* Hero / About Me Section with animated corner bubbles */
 .hero {
   position: relative;
   display: flex;
@@ -49,38 +50,38 @@ nav div a:hover {
   background: linear-gradient(135deg, #f0f4f8, #ffffff);
   overflow: hidden;
 }
+
+/* Floating corner bubbles */
 .hero::before,
 .hero::after {
   content: '';
   position: absolute;
   border-radius: 50%;
-  opacity: 0.1;
   background: #1a73e8;
+  opacity: 0.1;
   z-index: 0;
+  animation: floatBubble 6s ease-in-out infinite alternate;
 }
+
 .hero::before {
   width: 120px;
   height: 120px;
   top: -40px;
   left: -40px;
 }
+
 .hero::after {
   width: 80px;
   height: 80px;
   bottom: -30px;
   right: -30px;
 }
-.hero h1 {
-  font-size: 3rem;
-  color: #1a73e8;
-  margin-bottom: 1rem;
-  z-index: 1;
-}
-.hero p {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin-top: 1rem;
-  z-index: 1;
+
+/* Bubble floating animation */
+@keyframes floatBubble {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(15px, -15px) rotate(45deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
 
 /* Sections */
@@ -89,9 +90,9 @@ section {
   text-align: center;
   border-radius: 16px;
   margin-bottom: 2rem;
-  position: relative;
-  z-index: 1;
 }
+
+/* Section Titles with icons */
 section h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -117,7 +118,7 @@ section h2 i {
   padding: 16px 22px;
   background: linear-gradient(145deg, #ffffff, #e8f0fe);
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-size: 1.1rem;
   font-weight: 600;
   color: #222;
@@ -128,19 +129,97 @@ section h2 i {
 }
 
 /* Projects */
-#projects { background: #eaf1fc; }
-.project-features { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; text-align: left; max-width: 800px; margin: 0 auto; }
-.toggle-features { display: inline-block; margin: 8px 0; color: #1a73e8; cursor: pointer; font-weight: 600; }
-.toggle-features:hover { color: #fbbc05; }
+#projects {
+  background: #eaf1fc;
+}
+#projects p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+}
+#projects i {
+  margin-right: 8px;
+  color: #1a73e8;
+  font-weight: bold;
+}
+.project-features {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.toggle-features {
+  display: inline-block;
+  margin: 8px 0;
+  color: #1a73e8;
+  cursor: pointer;
+  font-weight: 600;
+}
+.toggle-features:hover {
+  color: #fbbc05;
+}
 
 /* Work Experience */
-#work { background: #e6f4ea; }
+#work {
+  background: #e6f4ea;
+}
+#work p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+}
+#work i {
+  margin-right: 8px;
+  color: #34a853;
+}
 
 /* Education */
-#education { background: #fff8e1; }
+#education {
+  background: #fff8e1;
+}
+#education p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+}
+#education i {
+  margin-right: 8px;
+  color: #fbbc05;
+}
 
 /* Contact */
-#contact { background: linear-gradient(135deg,#f5f5f5,#ffffff); }
+#contact {
+  background: linear-gradient(135deg, #f5f5f5, #ffffff);
+}
+#contact p {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  text-align: left;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#contact i {
+  margin-right: 8px;
+  color: #1a73e8;
+}
+#contact a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 600;
+}
+#contact a:hover {
+  color: #fbbc05;
+  transform: scale(1.05);
+}
 
 /* Chatbot */
 #chatbot {
@@ -151,20 +230,81 @@ section h2 i {
   height: 700px;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   transform: translateY(100%);
   transition: transform 0.5s ease;
   z-index: 200;
 }
-#chatbot.active { transform: translateY(0); }
-.chatbot { display: flex; flex-direction: column; height: 100%; }
-.chat-header { background: #1a73e8; color: #fff; padding: 16px; text-align:center; font-weight:600; font-size:1.2rem; border-top-left-radius:16px; border-top-right-radius:16px; }
-.chat-messages { flex: 4; padding:16px; overflow-y:auto; background:#f1f8ff; font-size:1rem; }
-#chat-input { padding:14px; font-size:1.05rem; border:none; outline:none; border-top:1px solid #ccc; width:calc(100%-28px); }
-.chatbot button { margin:6px; padding:10px 16px; border:none; border-radius:14px; cursor:pointer; background:#34a853; color:#fff; font-weight:600; }
-.chatbot button:hover { background:#1a73e8; }
-.user-msg, .bot-msg { font-size:1.15rem; padding:12px 16px; margin:8px 0; border-radius:12px; }
-.user-msg { text-align:right; font-weight:600; }
-.bot-msg { text-align:left; background:#e8f0fe; }
-.quick-options { display:flex; flex-wrap:wrap; justify-content:center; margin:6px 0; }
-.quick-options button { margin:2px; padding:6px 10px; font-size:0.85rem; border-radius:12px; }
+#chatbot.active {
+  transform: translateY(0);
+}
+
+.chatbot {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.chat-header {
+  background: #1a73e8;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.chat-messages {
+  flex: 4; 
+  padding: 16px;
+  overflow-y: auto;
+  font-size: 1.0rem;
+  background: #f1f8ff;
+}
+#chat-input {
+  padding: 14px;
+  font-size: 1.05rem;
+  border: none;
+  outline: none;
+  border-top: 1px solid #ccc;
+  width: calc(100% - 28px);
+}
+.chatbot button {
+  margin: 6px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  background: #34a853;
+  color: #fff;
+  font-weight: 600;
+}
+.chatbot button:hover {
+  background: #1a73e8;
+}
+.user-msg, .bot-msg {
+  font-size: 1.15rem;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border-radius: 12px;
+}
+.user-msg {
+  text-align: right;
+  font-weight: 600;
+}
+.bot-msg {
+  text-align: left;
+  background: #e8f0fe;
+}
+.quick-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 6px 0;
+}
+.quick-options button {
+  margin: 2px;
+  padding: 6px 10px; 
+  font-size: 0.85rem; 
+  border-radius: 12px;
+}
