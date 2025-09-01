@@ -46,3 +46,14 @@ function sendMessage() {
     chatbotBody.scrollTop = chatbotBody.scrollHeight;
     userInput.value = "";
 }
+
+// Project accordion
+const toggles = document.querySelectorAll(".toggle-features");
+
+toggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        const features = toggle.parentElement.nextElementSibling;
+        features.style.display = features.style.display === "block" ? "none" : "block";
+    });
+});
