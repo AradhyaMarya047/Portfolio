@@ -15,6 +15,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#work">Work Experience</a>
       <a href="#contact">Contact</a>
       <a href="#" onclick="toggleChatbot()">Chatbot 🤖</a>
     </div>
@@ -24,8 +25,8 @@
   <section class="hero" id="about">
     <h1>Hi, I’m Aradhya Marya 👋</h1>
     <p>3rd Year Honours Bachelor of Artificial Intelligence student at Durham College, Oshawa.</p>
-    <p>I’m passionate about applying AI and Machine Learning to solve real-world problems. I have experience building projects in Natural Language Processing, data analysis, and Python programming.</p>
-    <p>Currently, I am exploring projects involving translation, chatbots, and other AI-powered applications. I am actively seeking <b>part-time opportunities and internships</b> in AI/ML to further develop my skills and contribute to impactful projects.</p>
+    <p>I’m passionate about applying <b>AI and Machine Learning</b> to solve real-world problems. I have experience building projects in Natural Language Processing, data analysis, and Python programming.</p>
+    <p>Currently, I am exploring projects involving <b>translation</b>, <b>chatbots</b>, and other AI-powered applications. I am actively seeking <b>part-time opportunities and internships</b> in AI/ML to further develop my skills and contribute to impactful projects.</p>
   </section>
 
   <!-- Skills Section -->
@@ -49,28 +50,28 @@
     <div class="project-card">
       <h3>English → French Translator</h3>
       <p>A Python-based NLP project that converts English text to French using the Googletrans API.</p>
-      <p><b>Tech Stack:</b> Python, NLP, Googletrans</p>
+      <p><b>Tech Stack:</b> <span class="tech">Python</span> <span class="tech">NLP</span> <span class="tech">Googletrans</span></p>
       <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
     </div>
   </section>
 
   <!-- Work Experience Section -->
-<section class="work-experience" id="work">
-  <h2>Work Experience</h2>
-  <div class="experience-card">
-    <h3>Produce Associate – Walmart (Part-Time)</h3>
-    <p><b>Duration:</b> [March,2024] – Present</p>
-    <p><b>Key Skills:</b> Teamwork, Time Management, Reliability, Customer Service, Attention to Detail</p>
-    <p>Contributed to daily operations of the produce department, maintaining high standards of quality and customer satisfaction. Developed strong organizational and collaborative skills applicable in professional environments.</p>
-  </div>
-</section>
+  <section class="work-experience" id="work">
+    <h2>Work Experience</h2>
+    <div class="experience-card">
+      <h3>Produce Associate – Walmart (Part-Time)</h3>
+      <p><b>Duration:</b> [Start Month/Year] – Present</p>
+      <p><b>Key Skills:</b> Teamwork, Time Management, Reliability, Customer Service, Attention to Detail</p>
+      <p>Contributed to daily operations of the produce department, maintaining high standards of quality and customer satisfaction. Developed strong organizational and collaborative skills applicable in professional environments.</p>
+    </div>
+  </section>
 
   <!-- Contact Section -->
   <section class="contact" id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">Aradhya Marya</a></p>
-    <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">Aradhya Marya</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a></p>
+    <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a></p>
   </section>
 
   <!-- Chatbot Section -->
@@ -84,6 +85,7 @@
         <button onclick="quickAsk('hello')">Hello</button>
         <button onclick="quickAsk('skills')">Skills</button>
         <button onclick="quickAsk('projects')">Projects</button>
+        <button onclick="quickAsk('work')">Work Experience</button>
         <button onclick="quickAsk('contact')">Contact</button>
       </div>
     </div>
@@ -129,10 +131,13 @@
         botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
       } 
       else if (text.includes('skills')) {
-        botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
+        botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, Pandas, NumPy, Git & GitHub, and more.';
       } 
       else if (text.includes('project') || text.includes('projects')) {
         botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
+      } 
+      else if (text.includes('work') || text.includes('experience') || text.includes('job')) {
+        botReply.innerHTML = `<b>Work Experience:</b> Produce Associate at Walmart (Part-Time) – Key Skills: Teamwork, Time Management, Reliability, Customer Service, Attention to Detail.`;
       } 
       else if (text.includes('contact') || text.includes('email')) {
         botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
@@ -144,7 +149,7 @@
         botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
       } 
       else {
-        botReply.textContent = 'I am still learning! Try asking about skills, projects, or contact info.';
+        botReply.textContent = 'I am still learning! Try asking about skills, projects, work experience, or contact info.';
       }
 
       chatMessages.appendChild(botReply);
