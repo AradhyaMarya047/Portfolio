@@ -1,154 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aradhya Marya - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#education">Education</a>
-  <a href="#contact">Contact</a>
-  <a href="javascript:void(0)" id="chatbot-toggle">💬 Chatbot</a>
-</nav>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">My Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#" id="chatbot-btn">Chatbot</a></li>
+        </ul>
+    </nav>
 
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome to My Portfolio</h1>
+        <p>This portfolio showcases my work and projects in a clean, readable format.</p>
 
-  <!-- Hero Section with Background Image -->
-  <header class="hero-section">
-    <div class="hero-content">
-      <h1>Welcome to My Portfolio</h1>
-      <p>Aradhya Marya | AI Enthusiast | Passionate Learner</p>
+        <h2 id="about">About Me</h2>
+        <p>I am a 3rd year AI student passionate about technology and innovation.</p>
+
+        <h2 id="projects">Projects</h2>
+        <ul>
+            <li>AI Translator Web App</li>
+            <li>Machine Learning Classifier Projects</li>
+            <li>Portfolio Website (this one!)</li>
+        </ul>
     </div>
-  </header>
 
-  <!-- About Section -->
-  <section id="about" class="section about">
-    <h2>About Me</h2>
-    <p>
-      I am a dedicated Artificial Intelligence student with a strong interest in developing real-world AI solutions. 
-      I am passionate about continuous learning and applying my skills to solve practical problems while contributing to impactful projects.
-    </p>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="section skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">Python</div>
-      <div class="skill-card">Machine Learning</div>
-      <div class="skill-card">Deep Learning</div>
-      <div class="skill-card">Natural Language Processing</div>
-      <div class="skill-card">Data Analysis</div>
-      <div class="skill-card">FastAPI</div>
-      <div class="skill-card">Git/GitHub</div>
-      <div class="skill-card">Customer Service</div>
-      <div class="skill-card">Teamwork</div>
+    <!-- Chatbot -->
+    <div id="chatbot" class="chatbot">
+        <div class="chatbot-header">
+            <span>Chatbot</span>
+            <button id="close-chatbot">&times;</button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="message bot">Hi! How can I help you today?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
     </div>
-  </section>
 
-  <!-- Projects Section with Background -->
-  <section id="projects" class="section projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>English → French Translator</h3>
-      <p>A Python-based NLP project for multilingual translation with quality evaluation and speech output.</p>
-      <p><b>Key Features:</b> Real-time translation, BLEU & Perplexity scoring, Voice output, REST API with FastAPI, Swagger docs, performance monitoring.</p>
-      <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="section experience">
-    <h2>Work Experience</h2>
-    <div class="experience-card">
-      <h3>Produce Associate - Walmart Canada</h3>
-      <p><b>Duration:</b> 2024 - Present</p>
-      <p><b>Skills Gained:</b> Customer Service, Inventory Management, Teamwork, Attention to Detail</p>
-    </div>
-  </section>
-
-  <!-- Education Section with Background -->
-  <section id="education" class="section education">
-    <h2>Education</h2>
-    <div class="education-card">
-      <h3>Durham College</h3>
-      <p>Honours Bachelor in Artificial Intelligence (Sept 2023 - Present)</p>
-    </div>
-    <div class="education-card">
-      <h3>Rigveda International School, Tohana, India</h3>
-      <p>High School (2015 - 2022)</p>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya</a></p>
-    <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a></p>
-  </section>
-
-  <!-- Chatbot Section -->
-  <section id="chatbot" class="chatbot-section hidden">
-    <div class="chatbot-window">
-      <div class="chatbot-header">
-        <h3>Chat with Me</h3>
-        <button id="close-chat">×</button>
-      </div>
-      <div class="chatbot-body" id="chatbot-body"></div>
-      <div class="chatbot-input">
-        <input type="text" id="chatbot-question" placeholder="Type your question here...">
-        <button id="send-btn">Send</button>
-      </div>
-    </div>
-  </section>
-
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const chatbotToggle = document.getElementById("chatbot-toggle");
-  const chatbotContainer = document.getElementById("chatbot-container");
-
-  chatbotToggle.addEventListener("click", function () {
-    chatbotContainer.classList.toggle("open");
-  });
-
-  // Enter key should send messages
-  const inputField = document.getElementById("chatbot-input");
-  const sendBtn = document.getElementById("chatbot-send");
-  const messages = document.getElementById("chatbot-messages");
-
-  function sendMessage() {
-    let msg = inputField.value.trim();
-    if (msg) {
-      let userMsg = document.createElement("div");
-      userMsg.textContent = "You: " + msg;
-      messages.appendChild(userMsg);
-
-      // Bot placeholder response (you can update later)
-      let botMsg = document.createElement("div");
-      botMsg.textContent = "Bot: Thanks for asking! (I'll answer about AI, portfolio, and interview questions)";
-      messages.appendChild(botMsg);
-
-      inputField.value = "";
-      messages.scrollTop = messages.scrollHeight;
-    }
-  }
-
-  sendBtn.addEventListener("click", sendMessage);
-
-  inputField.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      sendMessage();
-    }
-  });
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
