@@ -3,7 +3,7 @@
 Welcome to my personal AI portfolio! This website showcases my skills, projects, work experience, and provides an interactive chatbot to help visitors explore my profile easily.
 
 ## 🔗 Live Demo
-[View Portfolio]([https://your-github-username.github.io/your-repo-name](https://aradhyamarya047.github.io/Portfolio/#))
+[View Portfolio](https://aradhyamarya047.github.io/Portfolio)
 
 ## 🧑‍💻 About Me
 I am a 3rd Year Honours Bachelor of Artificial Intelligence student at Durham College, Oshawa. I am passionate about applying AI and Machine Learning to solve real-world problems. I have experience in Natural Language Processing, data analysis, Python programming, and building AI-powered applications.
