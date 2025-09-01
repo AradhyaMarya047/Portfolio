@@ -67,7 +67,7 @@ section {
   margin-bottom: 2rem;
 }
 
-/* Section Titles with subtle gradient */
+/* Section Titles with gradient and icon support */
 section h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -77,7 +77,19 @@ section h2 {
   display: inline-block;
 }
 
-/* Skills */
+/* Section heading icons */
+section h2 i {
+  margin-right: 10px;
+  color: #34a853;
+  font-size: 1.3rem;
+  vertical-align: middle;
+}
+section h2 i:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+/* Skills Section */
 .skills-container {
   display: flex;
   flex-wrap: wrap;
@@ -93,10 +105,16 @@ section h2 {
   font-weight: 600;
   color: #222;
 }
+.skill-card i {
+  margin-right: 8px;
+  color: #1a73e8;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
 
 /* Projects Section */
 .projects {
-  background: #eaf1fc; /* Light pastel blue */
+  background: #eaf1fc;
 }
 .projects p {
   font-size: 1.15rem;
@@ -106,6 +124,12 @@ section h2 {
   max-width: 800px;
   margin: 0 auto;
   text-align: left;
+}
+.projects i {
+  margin-right: 8px;
+  color: #1a73e8;
+  font-size: 1.15rem;
+  vertical-align: middle;
 }
 .project-card a {
   color: #1a73e8;
@@ -117,34 +141,52 @@ section h2 {
 
 /* Work Experience Section */
 .work-experience {
-  background: #e6f4ea; /* Light pastel green */
+  background: #e6f4ea;
 }
 .work-experience p {
   font-size: 1.15rem;
   line-height: 1.6;
 }
+.work-experience i {
+  margin-right: 8px;
+  color: #34a853;
+  font-size: 1.15rem;
+  vertical-align: middle;
+}
 
 /* Education Section */
 .education {
-  background: #fff8e1; /* Light pastel yellow */
+  background: #fff8e1;
 }
 .education p {
   font-size: 1.15rem;
   line-height: 1.6;
 }
+.education i {
+  margin-right: 8px;
+  color: #fbbc05;
+  font-size: 1.15rem;
+  vertical-align: middle;
+}
 
 /* Contact Section */
 .contact {
-  background: linear-gradient(135deg, #f5f5f5, #ffffff); /* Light gray gradient */
+  background: linear-gradient(135deg, #f5f5f5, #ffffff);
   padding: 4rem 2rem;
-}
-.contact h2 {
-  font-size: 2.8rem;
-  margin-bottom: 2rem;
 }
 .contact p {
   font-size: 1.3rem;
   margin: 1rem 0;
+  text-align: left;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact i {
+  margin-right: 8px;
+  color: #1a73e8;
+  font-size: 1.2rem;
+  vertical-align: middle;
 }
 .contact a {
   color: #1a73e8;
@@ -231,25 +273,4 @@ section h2 {
   background: #e8f0fe;
 }
 .quick-options {
-  display: flex;
-  justify-content: flex-start;
-  padding: 6px;
-  background: #e8f0fe;
-  border-top: 1px solid #ccc;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.quick-options button {
-  background: linear-gradient(135deg, #fbbc05, #34a853);
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 14px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-}
-.quick-options button:hover {
-  background: linear-gradient(135deg, #1a73e8, #34a853);
-  transform: translateY(-2px);
-}
+  dis
