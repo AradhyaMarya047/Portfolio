@@ -112,10 +112,11 @@
     const chatMessages = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
 
-    ffunction toggleChatbot() {
-  chatSection.classList.toggle('active');
+    function toggleChatbot() {
+  const chat = document.getElementById('chatbot');
+  chat.classList.toggle('active');
+  }
 
-    }
     // Close chatbot when clicking outside
     document.addEventListener('click', function(e) {
       if (chatSection.classList.contains('active') && !chatSection.contains(e.target) && e.target.getAttribute('onclick') !== "toggleChatbot()") {
