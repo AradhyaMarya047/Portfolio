@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aradhya Marya | AI Portfolio</title>
-  <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -85,7 +84,7 @@
     <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">Aradhya Marya</a></p>
   </section>
 
-  <!-- Chatbot Section -->
+  <!-- Chatbot -->
   <div id="chatbot">
     <div class="chatbot">
       <div class="chat-header">Ask Me Anything</div>
@@ -105,7 +104,7 @@
     </div>
   </div>
 
-  <!-- Inline JS -->
+  <!-- JS -->
   <script>
     const chatSection = document.getElementById('chatbot');
     const chatMessages = document.getElementById('chat-messages');
@@ -113,11 +112,13 @@
 
     function toggleChatbot() {
       chatSection.classList.toggle('active');
+      chatInput.focus();
     }
 
-    // Close chatbot when clicking outside
     document.addEventListener('click', function(e) {
-      if (chatSection.classList.contains('active') && !chatSection.contains(e.target) && e.target.getAttribute('onclick') !== "toggleChatbot()") {
+      if (chatSection.classList.contains('active') &&
+          !chatSection.contains(e.target) &&
+          e.target.getAttribute('onclick') !== "toggleChatbot()") {
         chatSection.classList.remove('active');
       }
     });
