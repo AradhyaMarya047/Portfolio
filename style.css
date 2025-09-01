@@ -209,6 +209,46 @@ nav a:hover {
   background: #34a853;
 }
 
+/* Work Experience Section */
+.work-experience {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #ffffff, #f1f8ff);
+  text-align: center;
+}
+
+.work-experience h2 {
+  font-size: 2rem;
+  color: #1a73e8;
+  margin-bottom: 2rem;
+}
+
+.experience-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.experience-card h3 {
+  color: #34a853;
+  margin-bottom: 0.5rem;
+}
+
+.experience-card p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+
 /* Contact Section */
 .contact {
   background: #34a853;
