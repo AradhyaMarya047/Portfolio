@@ -99,7 +99,7 @@
         <button onclick="quickAsk('education')">Education</button>
         <button onclick="quickAsk('contact')">Contact</button>
         <button onclick="quickAsk('languages')">Languages</button>
-        <button onclick="quickAsk('about AI')">About AI</button>
+        <button onclick="quickAsk('about AI')">About Me</button>
       </div>
     </div>
   </div>
@@ -140,30 +140,113 @@ function quickAsk(keyword) {
 }
 
 function displayResponse(msg) {
-  chatMessages.innerHTML = '';
-  const userMsg = document.createElement('p');
-  userMsg.textContent = msg;
-  userMsg.classList.add('user-msg');
-  chatMessages.appendChild(userMsg);
+    chatMessages.innerHTML = '';
+    const userMsg = document.createElement('p');
+    userMsg.textContent = msg;
+    userMsg.classList.add('user-msg');
+    chatMessages.appendChild(userMsg);
 
-  const botReply = document.createElement('p');
-  botReply.classList.add('bot-msg');
-  const text = msg.toLowerCase();
+    const botReply = document.createElement('p');
+    botReply.classList.add('bot-msg');
+    const text = msg.toLowerCase();
 
-  if (text.includes('hello')) botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work, languages, AI, or contact info.';
-  else if (text.includes('skills')) botReply.textContent = 'My skills: Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
-  else if (text.includes('project')) botReply.textContent = 'English → French Translator with real-time translation, evaluation metrics, voice support, FastAPI REST API.';
-  else if (text.includes('work')) botReply.textContent = 'Work Experience: Produce Associate at Walmart – Teamwork, Time Management, Customer Service.';
-  else if (text.includes('education')) botReply.textContent = 'Durham College – Honours Bachelor in AI (3rd Year), Rigveda International School – High School.';
-  else if (text.includes('contact')) botReply.innerHTML = 'Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
-  else if (text.includes('linkedin')) botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
-  else if (text.includes('github')) botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
-  else if (text.includes('ai')) botReply.textContent = 'Passionate about AI & ML, building NLP projects, translation systems, and chatbots.';
-  else botReply.textContent = 'I am still learning! Try asking about skills, projects, work, education, AI, or contact info.';
-
-  chatMessages.appendChild(botReply);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
+    // Greetings
+    if (text.includes('hello') || text.includes('hi') || text.includes('hey')) {
+        botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work, languages, AI, or contact info.';
+    } 
+    // Who is Aradhya
+    else if (
+        text.includes('who is aradhya') ||
+        text.includes('who is aradhya marya') ||
+        text.includes('about aradhya') ||
+        text.includes('about aradhya marya')
+    ) {
+        botReply.textContent = "Aradhya Marya is a passionate Artificial Intelligence student and aspiring developer, skilled in Python, Machine Learning, NLP, and AI-powered applications. She builds projects like chatbots, translation systems, and other real-world AI solutions.";
+    }
+    // Skills
+    else if (
+        text.includes('skills') ||
+        text.includes('what can you do') ||
+        text.includes('tech stack')
+    ) {
+        botReply.textContent = 'My skills: Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
+    } 
+    // Projects
+    else if (
+        text.includes('project') ||
+        text.includes('projects') ||
+        text.includes('portfolio projects') ||
+        text.includes('what did you build')
+    ) {
+        botReply.textContent = 'I built an English → French Translator with real-time multilingual translation, automatic evaluation metrics, voice pronunciation, and FastAPI REST API.';
+    } 
+    // Work Experience
+    else if (
+        text.includes('work') ||
+        text.includes('job') ||
+        text.includes('experience') ||
+        text.includes('employment')
+    ) {
+        botReply.textContent = 'Work Experience: Produce Associate at Walmart (Part-Time) – Teamwork, Time Management, Reliability, Customer Service, Attention to Detail.';
+    } 
+    // Education
+else if (
+    text.includes('college') ||
+    text.includes('durham college')
+) {
+    botReply.textContent = 'College: Durham College – Honours Bachelor in Artificial Intelligence (3rd Year, Sept 2023 – Present).';
+} 
+else if (
+    text.includes('school') ||
+    text.includes('rigveda international school')
+) {
+    botReply.textContent = 'School: Rigveda International School, Tohana, India – High School (2015 – 2022).';
 }
+ 
+    // Contact / Email
+    else if (
+        text.includes('contact') ||
+        text.includes('email') ||
+        text.includes('reach you') ||
+        text.includes('message')
+    ) {
+        botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
+    } 
+    // LinkedIn
+    else if (
+        text.includes('linkedin') ||
+        text.includes('profile') ||
+        text.includes('connect')
+    ) {
+        botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
+    } 
+    // GitHub
+    else if (
+        text.includes('github') ||
+        text.includes('code') ||
+        text.includes('projects repo')
+    ) {
+        botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
+    } 
+    // AI Knowledge
+    else if (
+        text.includes('ai') ||
+        text.includes('artificial intelligence') ||
+        text.includes('machine learning') ||
+        text.includes('ml') ||
+        text.includes('nlp')
+    ) {
+        botReply.textContent = 'I am passionate about AI & ML, building NLP projects, translation systems, and chatbots.';
+    } 
+    // Default fallback
+    else {
+        botReply.textContent = 'I am still learning! Try asking about skills, projects, work, education, AI, or contact info.';
+    }
+
+    chatMessages.appendChild(botReply);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
 
 function toggleFeatures(el) {
   const featuresDiv = el.nextElementSibling;
