@@ -1,77 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aradhya Marya | AI Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">My Portfolio</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#" id="chatbot-btn">Chatbot</a></li>
+
+  <!-- Navbar -->
+  <nav>
+    <h1>Aradhya Marya</h1>
+    <div>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#work">Work Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <a href="#" onclick="toggleChatbot()">Chatbot 🤖</a>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <h1>Hi, I’m Aradhya Marya</h1>
+    <p>I am passionate about my work in Artificial Intelligence and enjoy applying AI and Machine Learning to solve practical problems. I am continually exploring projects involving NLP, translation, chatbots, and other AI-powered applications. I am seeking part-time opportunities and internships to enhance my skills and contribute effectively.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <p>My technical skills include Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, and Git & GitHub.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-card">
+      <p><strong>English → French Translator:</strong> Real-time multilingual translation application. <span class="toggle-features">View Key Features</span></p>
+      <div class="project-features">
+        <ul>
+          <li>Supports multiple languages using Google Translator API and Transformer-based models (M2M100).</li>
+          <li>Automatic quality evaluation using BLEU score and Perplexity metrics.</li>
+          <li>Voice pronunciation support.</li>
+          <li>FastAPI-powered REST API with Swagger UI.</li>
         </ul>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container">
-        <h1>Welcome to My Portfolio</h1>
-        <p>This portfolio showcases my work and projects in a clean, readable format.</p>
-
-        <h2 id="about">About Me</h2>
-        <p>I am a 3rd year AI student passionate about technology and innovation. I enjoy learning new skills, building projects, and exploring the latest trends in artificial intelligence.</p>
-
-        <h2 id="projects">Projects</h2>
-
-        <!-- Project 1 -->
-        <div class="project">
-            <p><strong>AI Translator Web App:</strong> A real-time translation web application. <a href="#" class="toggle-features">View Key Features</a></p>
-            <div class="project-features">
-                <ul>
-                    <li>Supports multiple languages and real-time translation.</li>
-                    <li>Voice input and pronunciation output.</li>
-                    <li>Responsive web design for desktop and mobile.</li>
-                    <li>Implemented with FastAPI and frontend JS.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project">
-            <p><strong>Machine Learning Classifier:</strong> A project with multiple classifiers to predict diabetes. <a href="#" class="toggle-features">View Key Features</a></p>
-            <div class="project-features">
-                <ul>
-                    <li>Implemented Logistic Regression, SVM, and Random Forest models.</li>
-                    <li>Used Pima Indians Diabetes dataset for training and testing.</li>
-                    <li>Includes accuracy metrics and confusion matrix visualization.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Contact -->
-        <h2>Contact</h2>
-        <p>If you would like to get in touch, feel free to reach out via email or connect with me on professional platforms. I am always open to collaborations and new opportunities.</p>
+      </div>
     </div>
 
-    <!-- Chatbot -->
-    <div id="chatbot" class="chatbot">
-        <div class="chatbot-header">
-            <span>Chatbot</span>
-            <button id="close-chatbot">&times;</button>
-        </div>
-        <div class="chatbot-body" id="chatbot-body">
-            <div class="message bot">Hi! How can I help you today?</div>
-        </div>
-        <div class="chatbot-input">
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button id="send-btn">Send</button>
-        </div>
-    </div>
+  </section>
 
-<script src="script.js"></script>
+  <!-- Work Experience Section -->
+  <section id="work">
+    <h2>Work Experience</h2>
+    <p>I work as a Produce Associate at Walmart (Part-Time) since March 2024. My responsibilities include teamwork, time management, reliability, customer service, and maintaining attention to detail.</p>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <h2>Education</h2>
+    <p>Durham College – Honours Bachelor in Artificial Intelligence, 3rd Year (Sept 2023 – Present)</p>
+    <p>Rigveda International School, Tohana, India – High School (2015 – 2022)</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">Aradhya Marya</a></p>
+    <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">Aradhya Marya</a></p>
+  </section>
+
+  <!-- Chatbot Section -->
+  <section id="chatbot">
+    <div class="chatbot">
+      <div class="chat-header">Ask Me Anything</div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <input type="text" id="chat-input" placeholder="Type a message..." />
+      <button onclick="sendMessage()">Send</button>
+      <div class="quick-options">
+        <button onclick="quickAsk('hello')">Hello</button>
+        <button onclick="quickAsk('skills')">Skills</button>
+        <button onclick="quickAsk('projects')">Projects</button>
+        <button onclick="quickAsk('work')">Work Experience</button>
+        <button onclick="quickAsk('education')">Education</button>
+        <button onclick="quickAsk('contact')">Contact</button>
+        <button onclick="quickAsk('languages')">Languages</button>
+        <button onclick="quickAsk('about AI')">About AI</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
 </body>
 </html>
