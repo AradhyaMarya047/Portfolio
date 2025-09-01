@@ -110,6 +110,47 @@
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const chatbotToggle = document.getElementById("chatbot-toggle");
+  const chatbotContainer = document.getElementById("chatbot-container");
+
+  chatbotToggle.addEventListener("click", function () {
+    chatbotContainer.classList.toggle("open");
+  });
+
+  // Enter key should send messages
+  const inputField = document.getElementById("chatbot-input");
+  const sendBtn = document.getElementById("chatbot-send");
+  const messages = document.getElementById("chatbot-messages");
+
+  function sendMessage() {
+    let msg = inputField.value.trim();
+    if (msg) {
+      let userMsg = document.createElement("div");
+      userMsg.textContent = "You: " + msg;
+      messages.appendChild(userMsg);
+
+      // Bot placeholder response (you can update later)
+      let botMsg = document.createElement("div");
+      botMsg.textContent = "Bot: Thanks for asking! (I'll answer about AI, portfolio, and interview questions)";
+      messages.appendChild(botMsg);
+
+      inputField.value = "";
+      messages.scrollTop = messages.scrollHeight;
+    }
+  }
+
+  sendBtn.addEventListener("click", sendMessage);
+
+  inputField.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+});
+</script>
+
 </body>
 </html>
