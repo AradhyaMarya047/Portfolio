@@ -4,7 +4,7 @@ Welcome to my personal portfolio website!
 I’m a **3rd year Honours Bachelor of Artificial Intelligence student** at **Durham College, Oshawa**.  
 This portfolio showcases my skills, education, and projects in the field of Artificial Intelligence.
 
-🌐 Live Site: [View Portfolio](https://your-username.github.io/portfolio/)  
+🌐 Live Site: [View Portfolio](https://aradhyamarya047.github.io/Portfolio/)  
 
 ---
 
