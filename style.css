@@ -25,7 +25,10 @@ nav {
   z-index: 100;
 }
 
-nav h1 { font-size: 1.8rem; }
+nav h1 {
+  font-size: 1.8rem;
+}
+
 nav div a {
   color: #fff;
   text-decoration: none;
@@ -33,7 +36,10 @@ nav div a {
   font-weight: 600;
   transition: color 0.3s ease;
 }
-nav div a:hover { color: #fbbc05; }
+
+nav div a:hover {
+  color: #fbbc05;
+}
 
 /* Hero Section */
 .hero {
@@ -47,33 +53,29 @@ nav div a:hover { color: #fbbc05; }
   position: relative;
   overflow: hidden;
 }
-.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-.hero p { font-size: 1.2rem; margin-top: 1rem; }
-.hero::before {
-  content: '';
-  position: absolute;
-  width: 300px; height: 300px;
-  background: rgba(26,115,232,0.1);
-  border-radius: 50%;
-  top: -50px; left: -50px;
-  animation: float 8s ease-in-out infinite;
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
-.hero::after {
-  content: '';
-  position: absolute;
-  width: 200px; height: 200px;
-  background: rgba(52,168,83,0.1);
-  border-radius: 50%;
-  bottom: -40px; right: -40px;
-  animation: float 10s ease-in-out infinite alternate;
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
 }
-@keyframes float { 0% { transform: translateY(0) translateX(0);} 50% { transform: translateY(20px) translateX(15px);} 100% { transform: translateY(0) translateX(0);} }
 
 /* Sections */
-section { padding: 6rem 3rem; }
+section {
+  padding: 5rem 3rem;
+}
 
 /* Section Titles */
-section h2 { font-size: 2.5rem; color: #1a73e8; margin-bottom: 2.5rem; text-align: center; }
+section h2 {
+  font-size: 2.5rem;
+  color: #1a73e8;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
 
 /* Skills */
 .skills-container {
@@ -83,6 +85,7 @@ section h2 { font-size: 2.5rem; color: #1a73e8; margin-bottom: 2.5rem; text-alig
   gap: 1.5rem;
   margin-top: 2rem;
 }
+
 .skill-card {
   display: flex;
   align-items: center;
@@ -90,44 +93,84 @@ section h2 { font-size: 2.5rem; color: #1a73e8; margin-bottom: 2.5rem; text-alig
   padding: 16px 22px;
   background: linear-gradient(145deg, #ffffff, #e8f0fe);
   border-radius: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-weight: 600;
   font-size: 1.1rem;
   color: #222;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
-.skill-card i { font-size: 1.3rem; color: #1a73e8; }
-.skill-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); background: linear-gradient(145deg, #f1f8ff, #ffffff); }
+
+.skill-card i {
+  font-size: 1.3rem;
+  color: #1a73e8;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(145deg, #f1f8ff, #ffffff);
+}
 
 /* Project Cards */
 .project-card {
   background: linear-gradient(145deg, #ffffff, #e8f0fe);
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 650px;
   margin: 0 auto 2.5rem auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.project-card:hover { transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-.project-card .tech { background:#fbbc05; padding:3px 8px; border-radius:4px; margin-right:5px; color:#fff; font-size:0.9rem; }
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card .tech {
+  background: #fbbc05;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 5px;
+  color: #fff;
+  font-size: 0.9rem;
+}
 
 /* Work Experience */
-.work-experience { background: linear-gradient(135deg, #f1f8ff, #ffffff); text-align:center; }
+.work-experience {
+  background: linear-gradient(135deg, #f1f8ff, #ffffff);
+  text-align: center;
+}
+
 .experience-card {
   background: linear-gradient(145deg, #ffffff, #e8f0fe);
   padding: 2rem;
-  border-left:5px solid #34a853;
+  border-left: 5px solid #34a853;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  max-width:650px;
-  margin:0 auto 2.5rem auto;
-  text-align:left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 650px;
+  margin: 0 auto 2.5rem auto;
+  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
-.experience-card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 10px 25px rgba(0,0,0,0.15); background:linear-gradient(145deg, #e8f0fe, #ffffff);}
-.experience-card h3 { color:#34a853; font-size:1.4rem; margin-bottom:0.5rem; }
-.experience-card p { font-size:1.1rem; margin:0.5rem 0; line-height:1.6; }
+
+.experience-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(145deg, #e8f0fe, #ffffff);
+}
+
+.experience-card h3 {
+  color: #34a853;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.experience-card p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
 
 /* Contact Section */
 .contact {
@@ -135,7 +178,7 @@ section h2 { font-size: 2.5rem; color: #1a73e8; margin-bottom: 2.5rem; text-alig
   background: linear-gradient(135deg, #e8f0fe, #ffffff);
   padding: 6rem 3rem;
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   max-width: 700px;
   margin: 0 auto 4rem auto;
 }
@@ -172,99 +215,103 @@ section h2 { font-size: 2.5rem; color: #1a73e8; margin-bottom: 2.5rem; text-alig
   font-size: 1.4rem;
 }
 
-
 /* Chatbot */
 #chatbot {
-  width: 450px;       
-  height: 550px;      
+  position: fixed;
   bottom: -600px;
   right: 20px;
+  width: 450px;
+  height: 550px;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   transition: bottom 0.5s ease;
-  overflow: hidden;
   z-index: 200;
 }
 
-#chatbot.active { bottom: 20px; }
+#chatbot.active {
+  bottom: 20px;
+}
 
-/* Chatbot Inner */
 .chatbot {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-/* Chat Header */
 .chat-header {
   background: #1a73e8;
   color: #fff;
   padding: 16px;
   text-align: center;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
 
-/* Chat Messages */
 .chat-messages {
   flex: 1;
-  padding: 20px;
+  padding: 16px;
   overflow-y: auto;
+  font-size: 1.2rem;
   background: #f1f8ff;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: #222;
 }
 
-/* Message Bubbles */
+#chat-input {
+  padding: 14px;
+  font-size: 1.05rem;
+  border: none;
+  outline: none;
+  border-top: 1px solid #ccc;
+  width: calc(100% - 28px);
+}
+
+.chatbot button {
+  margin: 6px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  background: #34a853;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.chatbot button:hover {
+  background: #1a73e8;
+}
+
 .user-msg, .bot-msg {
-  font-size: 1.15rem;
-  padding: 12px 18px;
-  margin: 10px 0;
-  border-radius: 16px;
-  max-width: 85%;
-  word-wrap: break-word;
+  font-size: 1.2rem;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border-radius: 12px;
 }
 
 .user-msg {
   text-align: right;
   font-weight: 600;
-  background: linear-gradient(135deg, #fbbc05, #34a853);
-  color: #fff;
-  margin-left: auto;
 }
 
 .bot-msg {
   text-align: left;
   background: #e8f0fe;
-  color: #222;
 }
 
-/* Input & Buttons */
-#chat-input {
-  padding: 14px;
-  font-size: 1.1rem;
-  border: none;
-  outline: none;
-  border-top: 1px solid #ccc;
-}
-
-/* Quick Options */
 .quick-options {
   display: flex;
   justify-content: flex-start;
-  padding: 10px;
+  padding: 6px;
   background: #e8f0fe;
   border-top: 1px solid #ccc;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .quick-options button {
-  background: linear-gradient(135deg,#fbbc05,#34a853);
+  background: linear-gradient(135deg, #fbbc05, #34a853);
   color: #fff;
   border: none;
   padding: 8px 12px;
@@ -276,6 +323,6 @@ section h2 { font-size: 2.5rem; color: #1a73e8; margin-bottom: 2.5rem; text-alig
 }
 
 .quick-options button:hover {
-  background: linear-gradient(135deg,#1a73e8,#34a853);
+  background: linear-gradient(135deg, #1a73e8, #34a853);
   transform: translateY(-2px);
 }
