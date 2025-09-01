@@ -68,13 +68,12 @@
     <p><i class="fas fa-arrow-right"></i> <b>Produce Associate – Walmart (Part-Time)</b></p>
     <p>March 2024 – Present</p>
     <p>Key Skills: Teamwork, Time Management, Reliability, Customer Service, Attention to Detail</p>
-    <p>Maintained high-quality standards in the produce department and developed strong organizational and collaborative skills.</p>
   </section>
 
   <!-- Education Section -->
   <section id="education">
     <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-    <p><i class="fas fa-arrow-right"></i> <b>Durham College,Oshawa, Canada</b> – Honours Bachelor in Artificial Intelligence (3rd Year, Sept 2023 – Present)</p>
+    <p><i class="fas fa-arrow-right"></i> <b>Durham College, Oshawa, Canada</b> – Honours Bachelor in Artificial Intelligence (3rd Year, Sept 2023 – Present)</p>
     <p><i class="fas fa-arrow-right"></i> <b>Rigveda International School, Tohana, India</b> – High School (2015 – 2022)</p>
   </section>
 
@@ -106,21 +105,20 @@
     </div>
   </section>
 
-  <!-- JS -->
+  <!-- Inline JS -->
   <script>
     const chatSection = document.getElementById('chatbot');
     const chatMessages = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
 
     function toggleChatbot() {
-  const chat = document.getElementById('chatbot');
-  chat.classList.toggle('active');
-  }
+      chatSection.classList.toggle('active');
+    }
 
     // Close chatbot when clicking outside
     document.addEventListener('click', function(e) {
       if (chatSection.classList.contains('active') && !chatSection.contains(e.target) && e.target.getAttribute('onclick') !== "toggleChatbot()") {
-      chatSection.classList.remove('active');
+        chatSection.classList.remove('active');
       }
     });
 
@@ -150,42 +148,21 @@
       botReply.classList.add('bot-msg');
       const text = msg.toLowerCase();
 
-      if (text.includes('hello')) {
-        botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about my skills, projects, education, work experience, programming languages, AI knowledge, or contact info.';
-      } 
-      else if (text.includes('skills')) {
-        botReply.textContent = 'My skills include Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
-      } 
-      else if (text.includes('project')) {
-        botReply.textContent = 'I built an English → French Translator with real-time multilingual translation, automatic evaluation metrics, voice pronunciation, and FastAPI REST API.';
-      } 
-      else if (text.includes('work')) {
-        botReply.textContent = 'Work Experience: Produce Associate at Walmart (Part-Time) – Teamwork, Time Management, Reliability, Customer Service, Attention to Detail.';
-      } 
-      else if (text.includes('education')) {
-        botReply.textContent = 'Education: Durham College – Honours Bachelor in AI (3rd Year), Rigveda International School – High School.';
-      } 
-      else if (text.includes('contact')) {
-        botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
-      } 
-      else if (text.includes('linkedin')) {
-        botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
-      } 
-      else if (text.includes('github')) {
-        botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
-      } 
-      else if (text.includes('ai')) {
-        botReply.textContent = 'I am passionate about AI and Machine Learning, building NLP projects, translation systems, and chatbots.';
-      } 
-      else {
-        botReply.textContent = 'I am still learning! Try asking about skills, projects, work experience, education, programming languages, AI, or contact info.';
-      }
+      if (text.includes('hello')) botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work, languages, AI, or contact info.';
+      else if (text.includes('skills')) botReply.textContent = 'My skills: Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
+      else if (text.includes('project')) botReply.textContent = 'English → French Translator with real-time translation, evaluation metrics, voice support, FastAPI REST API.';
+      else if (text.includes('work')) botReply.textContent = 'Work Experience: Produce Associate at Walmart – Teamwork, Time Management, Customer Service.';
+      else if (text.includes('education')) botReply.textContent = 'Durham College – Honours Bachelor in AI (3rd Year), Rigveda International School – High School.';
+      else if (text.includes('contact')) botReply.innerHTML = 'Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
+      else if (text.includes('linkedin')) botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
+      else if (text.includes('github')) botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
+      else if (text.includes('ai')) botReply.textContent = 'Passionate about AI & ML, building NLP projects, translation systems, and chatbots.';
+      else botReply.textContent = 'I am still learning! Try asking about skills, projects, work, education, AI, or contact info.';
 
       chatMessages.appendChild(botReply);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    /* Project Features Toggle */
     function toggleFeatures(el) {
       const featuresDiv = el.nextElementSibling;
       if (featuresDiv.style.maxHeight) {
