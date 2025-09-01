@@ -13,61 +13,75 @@
     <h1>Aradhya Marya</h1>
     <div>
       <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
+      <a href="#chatbot">Chatbot 🤖</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero / About Section -->
   <section class="hero" id="about">
     <h1>Hi, I’m Aradhya Marya 👋</h1>
     <p>3rd Year Honours Bachelor of Artificial Intelligence student at Durham College, Oshawa.</p>
-
     <p>I’m passionate about applying AI and Machine Learning to solve real-world problems.  
     I have experience building projects in Natural Language Processing, data analysis, and Python programming.</p>
-
     <p>Currently, I am exploring projects involving translation, chatbots, and other AI-powered applications.  
     I am actively seeking <b>part-time opportunities and internships</b> in AI/ML to further develop my skills and contribute to impactful projects.</p>
   </section>
-  
-  <!-- Skills Section -->
-<section class="skills" id="skills">
-  <h2 style="text-align:center; margin-bottom:2rem;">Skills</h2>
-  <div class="skills-container">
-    <div class="skill-card">Python</div>
-    <div class="skill-card">HTML & CSS</div>
-    <div class="skill-card">Java</div>
-    <div class="skill-card">TensorFlow</div>
-    <div class="skill-card">PyTorch</div>
-    <div class="skill-card">Scikit-learn</div>
-    <div class="skill-card">Pandas & NumPy</div>
-    <div class="skill-card">Git & GitHub</div>
-  </div>
-</section>
 
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card">Python</div>
+      <div class="skill-card">HTML & CSS</div>
+      <div class="skill-card">Java</div>
+      <div class="skill-card">TensorFlow</div>
+      <div class="skill-card">PyTorch</div>
+      <div class="skill-card">Scikit-learn</div>
+      <div class="skill-card">Pandas & NumPy</div>
+      <div class="skill-card">Git & GitHub</div>
+    </div>
+  </section>
 
   <!-- Projects Section -->
   <section class="projects" id="projects">
-    <h2 style="text-align:center; margin-bottom:2rem;">Projects</h2>
-
-    <!-- Project Card 1 -->
-  <div class="project-card">
-  <h3>English → French Translator</h3>
-  <p>A Python-based NLP project that converts English text to French using the Googletrans API.</p>
-  <p><b>Tech Stack:</b> Python, NLP, Googletrans</p>
-  <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
-</div>
-
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>English → French Translator</h3>
+      <p>A Python-based NLP project that converts English text to French using the Googletrans API.</p>
+      <p><b>Tech Stack:</b> Python, NLP, Googletrans</p>
+      <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
+    </div>
   </section>
 
-<!-- Chatbot Section -->
-<div class="chatbot">
-  <div class="chat-header">Ask Me Anything 🤖</div>
-  <div class="chat-messages" id="chat-messages"></div>
-  <input type="text" id="chat-input" placeholder="Type a message..." />
-  <button onclick="sendMessage()">Send</button>
-</div>
-<!-- Chatbot JS -->
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a></p>
+    <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a></p>
+  </section>
+
+  <!-- Chatbot Section -->
+  <section id="chatbot">
+    <h2 style="text-align:center; margin-bottom:1rem;">Chatbot 🤖</h2>
+    <div class="chatbot">
+      <div class="chat-header">Ask Me Anything</div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <input type="text" id="chat-input" placeholder="Type a message..." />
+      <button onclick="sendMessage()">Send</button>
+      <div class="quick-options">
+        <button onclick="quickAsk('hello')">Hello</button>
+        <button onclick="quickAsk('skills')">Skills</button>
+        <button onclick="quickAsk('projects')">Projects</button>
+        <button onclick="quickAsk('contact')">Contact</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chatbot JS -->
   <script>
     const chatMessages = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
@@ -76,47 +90,44 @@
       const msg = chatInput.value.trim();
       if (!msg) return;
 
+      displayResponse(msg);
+      chatInput.value = '';
+    }
+
+    function quickAsk(keyword) {
+      displayResponse(keyword);
+    }
+
+    function displayResponse(msg) {
+      // Clear previous messages
+      chatMessages.innerHTML = '';
+
       // User message
       const userMsg = document.createElement('p');
       userMsg.textContent = msg;
       userMsg.classList.add('user-msg');
       chatMessages.appendChild(userMsg);
 
-      chatInput.value = '';
-
       // Bot response
       const botReply = document.createElement('p');
       botReply.classList.add('bot-msg');
+      const text = msg.toLowerCase();
 
-      if (msg.toLowerCase().includes('hello') || msg.toLowerCase().includes('hi')) {
+      if (text.includes('hello') || text.includes('hi')) {
         botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
-      } else if (msg.toLowerCase().includes('skills')) {
+      } else if (text.includes('skills')) {
         botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
-      } else if (msg.toLowerCase().includes('project')) {
+      } else if (text.includes('project')) {
         botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
-      } else if (msg.toLowerCase().includes('contact')) {
+      } else if (text.includes('contact')) {
         botReply.textContent = 'You can reach me at aradhyamarya@gmail.com or on LinkedIn/GitHub.';
       } else {
-        botReply.textContent = 'I am still learning! Try asking about my skills, projects, or contact info.';
+        botReply.textContent = 'I am still learning! Try asking about skills, projects, or contact info.';
       }
 
       chatMessages.appendChild(botReply);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
   </script>
-
-  <!-- Contact -->
-<section id="contact">
-  <h3>Contact</h3>
-  <p>Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a></p>
-  <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a></p>
-</section>
-
-
-  <footer>
-    <p>© 2025 Aradhya Marya | Built with Python, HTML & CSS</p>
-  </footer>
 
 </body>
 </html>
