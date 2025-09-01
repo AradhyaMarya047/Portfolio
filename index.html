@@ -60,6 +60,51 @@
 
   </section>
 
+<!-- Chatbot Section -->
+<div class="chatbot">
+  <div class="chat-header">Ask Me Anything 🤖</div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <input type="text" id="chat-input" placeholder="Type a message..." />
+  <button onclick="sendMessage()">Send</button>
+</div>
+<!-- Chatbot JS -->
+  <script>
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+
+    function sendMessage() {
+      const msg = chatInput.value.trim();
+      if (!msg) return;
+
+      // User message
+      const userMsg = document.createElement('p');
+      userMsg.textContent = msg;
+      userMsg.classList.add('user-msg');
+      chatMessages.appendChild(userMsg);
+
+      chatInput.value = '';
+
+      // Bot response
+      const botReply = document.createElement('p');
+      botReply.classList.add('bot-msg');
+
+      if (msg.toLowerCase().includes('hello') || msg.toLowerCase().includes('hi')) {
+        botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
+      } else if (msg.toLowerCase().includes('skills')) {
+        botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
+      } else if (msg.toLowerCase().includes('project')) {
+        botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
+      } else if (msg.toLowerCase().includes('contact')) {
+        botReply.textContent = 'You can reach me at aradhyamarya@gmail.com or on LinkedIn/GitHub.';
+      } else {
+        botReply.textContent = 'I am still learning! Try asking about my skills, projects, or contact info.';
+      }
+
+      chatMessages.appendChild(botReply);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  </script>
+
   <!-- Contact -->
 <section id="contact">
   <h3>Contact</h3>
