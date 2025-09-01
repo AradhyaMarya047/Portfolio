@@ -1,263 +1,184 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* General Styling */
 body {
-  background: #f9f9f9;
-  color: #222;
+  margin: 0;
+  font-family: Arial, sans-serif;
   line-height: 1.6;
+  background-color: #f4f7fb;
+  color: #333;
 }
 
 /* Navbar */
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1.2rem 3rem;
-  background: #1a73e8;
-  color: #fff;
+  background: #1a1a2e;
+  padding: 1rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
-nav h1 {
-  font-size: 1.8rem;
-}
-nav div a {
-  color: #fff;
+
+nav a {
+  color: white;
+  margin: 0 15px;
   text-decoration: none;
-  margin-left: 1.2rem;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-nav div a:hover {
-  color: #fbbc05;
+  font-weight: 500;
 }
 
-/* Hero Section */
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 6rem 3rem;
-  background: linear-gradient(135deg, #e8f0fe, #ffffff);
+nav a:hover {
+  text-decoration: underline;
 }
-.hero h1 {
+
+/* Hero Section with Background */
+header {
+  text-align: center;
+  color: white;
+  padding: 80px 20px;
+  background: url("https://images.unsplash.com/photo-1664575602554-e63f79cba399?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80") 
+    no-repeat center center/cover;
+}
+
+header h1 {
   font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  max-width: 800px;
 }
 
-/* Sections */
+header p {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+/* Section Styling */
 section {
-  padding: 5rem 3rem;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* About Section */
+#about {
+  background: url("https://images.unsplash.com/photo-1581091215367-59ab6d93e72f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80") 
+    no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 60px;
+  border-radius: 12px;
+}
+
+/* Skills Section */
+#skills {
   text-align: center;
 }
 
-/* Section Titles */
-section h2 {
-  font-size: 2.5rem;
-  color: #1a73e8;
-  margin-bottom: 2rem;
-}
-
-/* Skills */
 .skills-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-}
-.skill-card {
-  padding: 16px 22px;
-  background: linear-gradient(145deg, #ffffff, #e8f0fe);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #222;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-/* Projects */
-.project-card {
-  background: linear-gradient(145deg, #ffffff, #e8f0fe);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  margin: 0 auto 2.5rem auto;
-  text-align: left;
+.skill-card {
+  background: #1a1a2e;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-.project-card .tech {
-  background: #fbbc05;
-  padding: 3px 8px;
-  border-radius: 4px;
-  margin-right: 5px;
-  color: #fff;
-  font-size: 0.9rem;
+
+/* Projects Section */
+#projects {
+  background: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80") 
+    no-repeat center center/cover;
+  color: white;
+}
+
+.project-card {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+/* Education Section */
+#education {
+  background: url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80") 
+    no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 60px;
+  border-radius: 12px;
 }
 
 /* Work Experience */
-.work-experience, .education {
-  background: linear-gradient(135deg, #f1f8ff, #ffffff);
-  padding: 4rem 2rem;
-  border-radius: 16px;
-  margin-bottom: 3rem;
-}
-.experience-card, .education-card {
-  background: linear-gradient(145deg, #ffffff, #e8f0fe);
-  padding: 2rem;
-  border-left: 5px solid #34a853;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  margin: 1rem auto;
-  text-align: center;
-}
-.experience-card h3, .education-card h3 {
-  color: #34a853;
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-}
-.experience-card p, .education-card p {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-  line-height: 1.6;
+#work-experience {
+  background: #f9fafc;
 }
 
 /* Contact Section */
-.contact {
+#contact {
   text-align: center;
-  background: linear-gradient(135deg, #e8f0fe, #ffffff);
-  padding: 4rem 2rem;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  margin: 0 auto 4rem auto;
-}
-.contact h2 {
-  font-size: 2.8rem;
-  color: #1a73e8;
-  margin-bottom: 2rem;
-}
-.contact p {
-  font-size: 1.3rem;
-  margin: 1rem 0;
-}
-.contact a {
-  color: #1a73e8;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.contact a:hover {
-  color: #fbbc05;
-  transform: scale(1.05);
+  padding: 50px;
+  background: #1a1a2e;
+  color: white;
+  border-radius: 12px;
 }
 
 /* Chatbot */
-#chatbot {
+#chatbot-container {
   position: fixed;
-  bottom: -600px;
+  bottom: -500px;
   right: 20px;
-  width: 450px;
-  height: 600px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  transition: bottom 0.5s ease;
-  z-index: 200;
-}
-#chatbot.active {
-  bottom: 20px;
-}
-.chatbot {
+  width: 380px;
+  height: 500px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: bottom 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
-.chat-header {
-  background: #1a73e8;
-  color: #fff;
-  padding: 16px;
+
+#chatbot-container.open {
+  bottom: 20px;
+}
+
+#chatbot-header {
+  background: #1a1a2e;
+  color: white;
+  padding: 10px;
   text-align: center;
-  font-weight: 600;
-  font-size: 1.2rem;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
 }
-.chat-messages {
-  flex: 2; /* make response area larger */
-  padding: 16px;
+
+#chatbot-messages {
+  flex: 1;
+  padding: 15px;
   overflow-y: auto;
-  font-size: 1.15rem;
-  background: #f1f8ff;
+  font-size: 1rem;
 }
-#chat-input {
-  padding: 14px;
-  font-size: 1.05rem;
+
+#chatbot-input-container {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+#chatbot-input {
+  flex: 1;
+  padding: 8px;
   border: none;
   outline: none;
-  border-top: 1px solid #ccc;
-  width: calc(100% - 28px);
 }
-.chatbot button {
-  margin: 6px;
-  padding: 10px 16px;
+
+#chatbot-send {
+  background: #1a1a2e;
+  color: white;
   border: none;
-  border-radius: 14px;
+  padding: 8px 15px;
   cursor: pointer;
-  background: #34a853;
-  color: #fff;
-  font-weight: 600;
-}
-.chatbot button:hover {
-  background: #1a73e8;
-}
-.user-msg, .bot-msg {
-  font-size: 1.15rem;
-  padding: 12px 16px;
-  margin: 8px 0;
-  border-radius: 12px;
-}
-.user-msg {
-  text-align: right;
-  font-weight: 600;
-}
-.bot-msg {
-  text-align: left;
-  background: #e8f0fe;
-}
-.quick-options {
-  display: flex;
-  justify-content: flex-start;
-  padding: 6px;
-  background: #e8f0fe;
-  border-top: 1px solid #ccc;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.quick-options button {
-  background: linear-gradient(135deg, #fbbc05, #34a853);
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 14px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-}
-.quick-options button:hover {
-  background: linear-gradient(135deg, #1a73e8, #34a853);
-  transform: translateY(-2px);
 }
