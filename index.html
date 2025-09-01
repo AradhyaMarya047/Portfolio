@@ -22,7 +22,7 @@
     </div>
   </nav>
 
-  <!-- Hero / About Section -->
+  <!-- About Section -->
   <section class="hero" id="about">
     <h1>Hi, I’m Aradhya Marya</h1>
     <p>I am passionate about my work in Artificial Intelligence and enjoy applying AI and Machine Learning to solve practical problems. I am continually exploring projects involving NLP, translation, chatbots, and other AI-powered applications. I am seeking part-time opportunities and internships to enhance my skills and contribute effectively.</p>
@@ -44,25 +44,24 @@
   </section>
 
   <!-- Projects Section -->
-<section class="projects" id="projects">
-  <h2>Projects</h2>
+  <section class="projects" id="projects">
+    <h2>Projects</h2>
 
-  <div class="project-card">
-    <h3>English → French Translator</h3>
-    <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
-    <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
-    <p class="toggle-features" onclick="toggleFeatures(this)">Show Features ▼</p>
-    <div class="project-features">
-      <ul>
-        <li>Automatic quality evaluation using BLEU score and Perplexity metrics</li>
-        <li>Voice pronunciation support</li>
-        <li>FastAPI-powered REST API with Swagger UI</li>
-      </ul>
+    <div class="project-card">
+      <h3>English → French Translator</h3>
+      <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
+      <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
+      <p class="toggle-features" onclick="toggleFeatures(this)">Show Features ▼</p>
+      <div class="project-features">
+        <ul>
+          <li>Automatic quality evaluation using BLEU score and Perplexity metrics</li>
+          <li>Voice pronunciation support</li>
+          <li>FastAPI-powered REST API with Swagger UI</li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </section>
 
-</section>
-  
   <!-- Work Experience Section -->
   <section class="work-experience" id="work">
     <h2>Work Experience</h2>
@@ -127,7 +126,7 @@
     const chatMessages = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
 
-    // Toggle chatbot
+    // Toggle chatbot visibility
     function toggleChatbot() {
       chatSection.classList.toggle('active');
     }
@@ -159,8 +158,9 @@
       botReply.classList.add('bot-msg');
       const text = msg.toLowerCase();
 
+      // Chatbot logic
       if (text.includes('hello') || text.includes('hi')) {
-        botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work experience, programming languages, AI knowledge, or contact info.';
+        botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about my skills, projects, education, work experience, programming languages, AI knowledge, or contact info.';
       } 
       else if (text.includes('skills')) {
         botReply.textContent = 'My skills include Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
@@ -187,7 +187,7 @@
         botReply.textContent = 'Programming Languages: Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
       }
       else if (text.includes('ai')) {
-        botReply.textContent = 'I am passionate about AI. I work with Machine Learning, NLP, translation systems, chatbots, and AI-powered applications.';
+        botReply.textContent = 'I am passionate about AI. I work with Machine Learning, Natural Language Processing, translation systems, chatbots, and AI-powered applications.';
       } 
       else {
         botReply.textContent = 'I am still learning! Try asking about skills, projects, work experience, education, programming languages, AI, or contact info.';
@@ -197,38 +197,20 @@
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-   <!-- Projects Section -->
-<section class="projects" id="projects">
-  <h2>Projects</h2>
-
-  <div class="project-card">
-    <h3>English → French Translator</h3>
-    <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
-    <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
-    <p class="toggle-features" onclick="toggleFeatures(this)">Show Features ▼</p>
-    <div class="project-features">
-      <ul>
-        <li>Automatic quality evaluation using BLEU score and Perplexity metrics</li>
-        <li>Voice pronunciation support</li>
-        <li>FastAPI-powered REST API with Swagger UI</li>
-      </ul>
-    </div>
-  </div>
-
-</section>
-    
-  // Toggle project features visibility
-  function toggleFeatures(elem) {
-    const features = elem.nextElementSibling;
-    if (features.style.display === "block") {
-      features.style.display = "none";
-      elem.textContent = "Show Features ▼";
-    } else {
-      features.style.display = "block";
-      elem.textContent = "Hide Features ▲";
+    // Project features toggle
+    function toggleFeatures(elem) {
+      const features = elem.nextElementSibling;
+      if (features.style.maxHeight && features.style.maxHeight !== "0px") {
+        features.style.maxHeight = "0";
+        features.style.padding = "0";
+        elem.textContent = "Show Features ▼";
+      } else {
+        features.style.maxHeight = features.scrollHeight + "px";
+        features.style.padding = "10px 0";
+        elem.textContent = "Hide Features ▲";
+      }
     }
-  }
-</script>
+  </script>
 
 </body>
 </html>
