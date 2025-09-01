@@ -131,24 +131,35 @@ nav a:hover {
 }
 
 /* Chatbot Section */
-.chatbot {
+#chatbot {
   position: fixed;
   bottom: 30px;
   right: 30px;
   width: 320px;
   max-height: 450px;
-  background: #ffffff;
+  z-index: 200;
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+#chatbot.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.chatbot {
+  background: #fff;
   border-radius: 16px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  font-family: 'Poppins', sans-serif;
-  z-index: 200;
-  animation: fadeIn 0.8s ease;
 }
 
-/* Chatbot header */
+/* Chat header */
 .chat-header {
   background: #1a73e8;
   color: #fff;
@@ -156,10 +167,9 @@ nav a:hover {
   text-align: center;
   font-weight: 700;
   font-size: 1.1rem;
-  letter-spacing: 0.5px;
 }
 
-/* Chat messages container */
+/* Messages */
 .chat-messages {
   flex: 1;
   padding: 10px;
@@ -170,7 +180,6 @@ nav a:hover {
   gap: 8px;
 }
 
-/* Message bubbles */
 .chat-messages p {
   margin: 0;
   padding: 8px 12px;
@@ -185,7 +194,6 @@ nav a:hover {
   color: #fff;
   margin-left: auto;
   text-align: right;
-  animation: slideInRight 0.3s ease;
 }
 
 .bot-msg {
@@ -193,10 +201,9 @@ nav a:hover {
   color: #222;
   margin-right: auto;
   text-align: left;
-  animation: slideInLeft 0.3s ease;
 }
 
-/* Input area */
+/* Input & buttons */
 #chat-input {
   border: none;
   padding: 12px;
@@ -214,7 +221,6 @@ nav a:hover {
   color: #fff;
   cursor: pointer;
   font-weight: 600;
-  transition: background 0.3s ease;
 }
 
 .chatbot button:hover {
@@ -248,27 +254,7 @@ nav a:hover {
   transform: translateY(-3px);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {opacity: 0; transform: scale(0.95);}
-  to {opacity: 1; transform: scale(1);}
-}
-
-@keyframes slideInRight {
-  from {opacity:0; transform: translateX(50px);}
-  to {opacity:1; transform: translateX(0);}
-}
-
-@keyframes slideInLeft {
-  from {opacity:0; transform: translateX(-50px);}
-  to {opacity:1; transform: translateX(0);}
-}
-
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 400px) {
-  .chatbot {
-    width: 90%;
-    bottom: 20px;
-    right: 5%;
-  }
+  #chatbot { width: 90%; right: 5%; bottom: 20px; }
 }
