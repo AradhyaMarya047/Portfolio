@@ -44,23 +44,25 @@
   </section>
 
   <!-- Projects Section -->
-  <section class="projects" id="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>English → French Translator</h3>
-      <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
-      <p class="toggle-features">View Key Features</p>
-      <div class="project-features">
-        <ul>
-          <li>Automatic quality evaluation using BLEU score and Perplexity metrics.</li>
-          <li>Voice pronunciation support.</li>
-          <li>FastAPI-powered REST API with Swagger UI.</li>
-        </ul>
-        <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
-      </div>
-    </div>
-  </section>
+<section class="projects" id="projects">
+  <h2>Projects</h2>
 
+  <div class="project-card">
+    <h3>English → French Translator</h3>
+    <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
+    <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
+    <p class="toggle-features" onclick="toggleFeatures(this)">Show Features ▼</p>
+    <div class="project-features">
+      <ul>
+        <li>Automatic quality evaluation using BLEU score and Perplexity metrics</li>
+        <li>Voice pronunciation support</li>
+        <li>FastAPI-powered REST API with Swagger UI</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+  
   <!-- Work Experience Section -->
   <section class="work-experience" id="work">
     <h2>Work Experience</h2>
@@ -195,14 +197,38 @@
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    // Project toggle functionality
-    const toggles = document.querySelectorAll(".toggle-features");
-    toggles.forEach(toggle => {
-      toggle.addEventListener("click", () => {
-        const features = toggle.nextElementSibling;
-        features.style.display = features.style.display === "block" ? "none" : "block";
-      });
-    });
-  </script>
+   <!-- Projects Section -->
+<section class="projects" id="projects">
+  <h2>Projects</h2>
+
+  <div class="project-card">
+    <h3>English → French Translator</h3>
+    <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
+    <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
+    <p class="toggle-features" onclick="toggleFeatures(this)">Show Features ▼</p>
+    <div class="project-features">
+      <ul>
+        <li>Automatic quality evaluation using BLEU score and Perplexity metrics</li>
+        <li>Voice pronunciation support</li>
+        <li>FastAPI-powered REST API with Swagger UI</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+    
+  // Toggle project features visibility
+  function toggleFeatures(elem) {
+    const features = elem.nextElementSibling;
+    if (features.style.display === "block") {
+      features.style.display = "none";
+      elem.textContent = "Show Features ▼";
+    } else {
+      features.style.display = "block";
+      elem.textContent = "Hide Features ▲";
+    }
+  }
+</script>
+
 </body>
 </html>
