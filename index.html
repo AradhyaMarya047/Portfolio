@@ -109,10 +109,20 @@
 const chatSection = document.getElementById('chatbot');
 const chatMessages = document.getElementById('chat-messages');
 const chatInput = document.getElementById('chat-input');
+const toggleBtn = document.querySelector('a[onclick*="toggleChatbot"]');
 
 function toggleChatbot() {
   chatSection.classList.toggle('active');
 }
+
+// Close chatbot when clicking outside
+document.addEventListener('click', function(e) {
+  if (chatSection.classList.contains('active') && 
+      !chatSection.contains(e.target) && 
+      e.target !== toggleBtn) {
+    chatSection.classList.remove('active');
+  }
+});
 
 chatInput.addEventListener("keypress", function(e) {
   if (e.key === "Enter") sendMessage();
@@ -166,6 +176,7 @@ function toggleFeatures(el) {
   }
 }
 </script>
+
 
 
 </body>
