@@ -183,7 +183,7 @@ section h2 i {
   bottom: -600px;
   right: 20px;
   width: 450px;
-  height: 650px; /* increased height for more response space */
+  height: 700px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -209,10 +209,10 @@ section h2 i {
   border-top-right-radius: 16px;
 }
 .chat-messages {
-  flex: 3; /* increased flex so messages area is bigger */
+  flex: 4;
   padding: 16px;
   overflow-y: auto;
-  font-size: 1.15rem;
+  font-size: 1.0rem;
   background: #f1f8ff;
 }
 #chat-input {
@@ -257,9 +257,9 @@ section h2 i {
   margin: 6px 0;
 }
 .quick-options button {
-  margin: 3px;
-  padding: 6px 10px; /* smaller buttons */
-  font-size: 0.9rem; /* smaller text */
+  margin: 2px;
+  padding: 5px 9px;
+  font-size: 0.9rem;
 }
 .project-features {
   max-height: 0;
