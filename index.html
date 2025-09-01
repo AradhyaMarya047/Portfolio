@@ -49,9 +49,15 @@
     <div class="project-card">
       <h3>English → French Translator</h3>
       <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
-      <p>Automatic quality evaluation using BLEU score and Perplexity metrics.</p>
-      <p>Voice pronunciation support and FastAPI-powered REST API with Swagger UI.</p>
-      <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
+      <p class="toggle-features">View Key Features</p>
+      <div class="project-features">
+        <ul>
+          <li>Automatic quality evaluation using BLEU score and Perplexity metrics.</li>
+          <li>Voice pronunciation support.</li>
+          <li>FastAPI-powered REST API with Swagger UI.</li>
+        </ul>
+        <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
+      </div>
     </div>
   </section>
 
@@ -96,8 +102,10 @@
     <div class="chatbot">
       <div class="chat-header">Ask Me Anything</div>
       <div class="chat-messages" id="chat-messages"></div>
-      <input type="text" id="chat-input" placeholder="Type a message..." />
-      <button onclick="sendMessage()">Send</button>
+      <div class="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
       <div class="quick-options">
         <button onclick="quickAsk('hello')">Hello</button>
         <button onclick="quickAsk('skills')">Skills</button>
@@ -117,7 +125,7 @@
     const chatMessages = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
 
-    // Toggle chatbot visibility
+    // Toggle chatbot
     function toggleChatbot() {
       chatSection.classList.toggle('active');
     }
@@ -149,9 +157,8 @@
       botReply.classList.add('bot-msg');
       const text = msg.toLowerCase();
 
-      // Chatbot logic
       if (text.includes('hello') || text.includes('hi')) {
-        botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about my skills, projects, education, work experience, programming languages, AI knowledge, or contact info.';
+        botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work experience, programming languages, AI knowledge, or contact info.';
       } 
       else if (text.includes('skills')) {
         botReply.textContent = 'My skills include Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
@@ -178,7 +185,7 @@
         botReply.textContent = 'Programming Languages: Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
       }
       else if (text.includes('ai')) {
-        botReply.textContent = 'I am passionate about AI. I work with Machine Learning, Natural Language Processing, translation systems, chatbots, and AI-powered applications.';
+        botReply.textContent = 'I am passionate about AI. I work with Machine Learning, NLP, translation systems, chatbots, and AI-powered applications.';
       } 
       else {
         botReply.textContent = 'I am still learning! Try asking about skills, projects, work experience, education, programming languages, AI, or contact info.';
@@ -187,7 +194,15 @@
       chatMessages.appendChild(botReply);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-  </script>
 
+    // Project toggle functionality
+    const toggles = document.querySelectorAll(".toggle-features");
+    toggles.forEach(toggle => {
+      toggle.addEventListener("click", () => {
+        const features = toggle.nextElementSibling;
+        features.style.display = features.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
 </body>
 </html>
