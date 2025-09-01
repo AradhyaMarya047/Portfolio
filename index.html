@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aradhya Marya | AI Portfolio</title>
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -69,15 +70,14 @@
 
   <!-- Contact Section -->
   <section class="contact" id="contact">
-  <h2>Contact</h2>
-  <p><i class="fas fa-envelope"></i> <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
-  <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">Aradhya Marya</a></p>
-  <p><i class="fab fa-github"></i> <a href="https://github.com/AradhyaMarya047" target="_blank">Aradhya Marya</a></p>
-</section>
+    <h2>Contact</h2>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
+    <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">Aradhya Marya</a></p>
+    <p><i class="fab fa-github"></i> <a href="https://github.com/AradhyaMarya047" target="_blank">Aradhya Marya</a></p>
+  </section>
 
-
-  <!-- Chatbot Section -->
-  <section id="chatbot">
+  <!-- Chatbot -->
+  <div id="chatbot">
     <div class="chatbot">
       <div class="chat-header">Ask Me Anything</div>
       <div class="chat-messages" id="chat-messages"></div>
@@ -91,83 +91,76 @@
         <button onclick="quickAsk('contact')">Contact</button>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- JS -->
   <script>
-  const chatSection = document.getElementById('chatbot');
-  const chatMessages = document.getElementById('chat-messages');
-  const chatInput = document.getElementById('chat-input');
+    const chatSection = document.getElementById('chatbot');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
 
-  // Toggle chatbot visibility
-  function toggleChatbot() {
-    chatSection.classList.toggle('active');
-    chatInput.focus(); // Focus input when opened
-  }
-
-  function sendMessage() {
-    const msg = chatInput.value.trim();
-    if (!msg) return;
-    displayResponse(msg);
-    chatInput.value = '';
-  }
-
-  function quickAsk(keyword) {
-    displayResponse(keyword);
-  }
-
-  function displayResponse(msg) {
-    chatMessages.innerHTML = '';
-
-    // User message
-    const userMsg = document.createElement('p');
-    userMsg.textContent = msg;
-    userMsg.classList.add('user-msg');
-    chatMessages.appendChild(userMsg);
-
-    // Bot response
-    const botReply = document.createElement('p');
-    botReply.classList.add('bot-msg');
-    const text = msg.toLowerCase();
-
-    if (text.includes('hello') || text.includes('hi')) {
-      botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
-    } 
-    else if (text.includes('skills')) {
-      botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, Pandas, NumPy, Git & GitHub, and more.';
-    } 
-    else if (text.includes('project') || text.includes('projects')) {
-      botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
-    } 
-    else if (text.includes('work') || text.includes('experience') || text.includes('job')) {
-      botReply.innerHTML = `<b>Work Experience:</b> Produce Associate at Walmart (Part-Time) – Key Skills: Teamwork, Time Management, Reliability, Customer Service, Attention to Detail.`;
-    } 
-    else if (text.includes('contact') || text.includes('email')) {
-      botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
-    } 
-    else if (text.includes('linkedin')) {
-      botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
-    } 
-    else if (text.includes('github')) {
-      botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
-    } 
-    else {
-      botReply.textContent = 'I am still learning! Try asking about skills, projects, work experience, or contact info.';
+    // Toggle chatbot visibility
+    function toggleChatbot() {
+      chatSection.classList.toggle('active');
     }
 
-    chatMessages.appendChild(botReply);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
+    // Press Enter to send
+    chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') sendMessage();
+    });
 
-  // Add "Enter" key event listener
-  chatInput.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-      sendMessage();
-      event.preventDefault(); // prevent newline in input
+    function sendMessage() {
+      const msg = chatInput.value.trim();
+      if (!msg) return;
+      displayResponse(msg);
+      chatInput.value = '';
     }
-  });
-</script>
 
+    function quickAsk(keyword) {
+      displayResponse(keyword);
+    }
+
+    function displayResponse(msg) {
+      chatMessages.innerHTML = '';
+
+      const userMsg = document.createElement('p');
+      userMsg.textContent = msg;
+      userMsg.classList.add('user-msg');
+      chatMessages.appendChild(userMsg);
+
+      const botReply = document.createElement('p');
+      botReply.classList.add('bot-msg');
+      const text = msg.toLowerCase();
+
+      if (text.includes('hello') || text.includes('hi')) {
+        botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
+      } 
+      else if (text.includes('skills')) {
+        botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, Pandas, NumPy, Git & GitHub, and more.';
+      } 
+      else if (text.includes('project') || text.includes('projects')) {
+        botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
+      } 
+      else if (text.includes('work') || text.includes('experience') || text.includes('job')) {
+        botReply.innerHTML = `<b>Work Experience:</b> Produce Associate at Walmart (Part-Time) – Key Skills: Teamwork, Time Management, Reliability, Customer Service, Attention to Detail.`;
+      } 
+      else if (text.includes('contact') || text.includes('email')) {
+        botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
+      } 
+      else if (text.includes('linkedin')) {
+        botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
+      } 
+      else if (text.includes('github')) {
+        botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
+      } 
+      else {
+        botReply.textContent = 'I am still learning! Try asking about skills, projects, work experience, or contact info.';
+      }
+
+      chatMessages.appendChild(botReply);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  </script>
 
 </body>
 </html>
