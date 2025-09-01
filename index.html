@@ -16,7 +16,7 @@
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-      <a href="#chatbot">Chatbot 🤖</a>
+      <a href="#" onclick="toggleChatbot()">Chatbot 🤖</a>
     </div>
   </nav>
 
@@ -65,8 +65,7 @@
 </section>
 
 <!-- Chatbot Section -->
-<section id="chatbot">
-  <h2 style="text-align:center; margin-bottom:1rem;">Chatbot 🤖</h2>
+<section id="chatbot" style="display:none;">
   <div class="chatbot">
     <div class="chat-header">Ask Me Anything</div>
     <div class="chat-messages" id="chat-messages"></div>
@@ -81,54 +80,75 @@
   </div>
 </section>
 
+
 <!-- Chatbot JS -->
 <script>
-  const chatMessages = document.getElementById('chat-messages');
-  const chatInput = document.getElementById('chat-input');
+const chatSection = document.getElementById('chatbot');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input');
 
-  function sendMessage() {
-    const msg = chatInput.value.trim();
-    if (!msg) return;
-    displayResponse(msg);
-    chatInput.value = '';
+// Toggle chatbot visibility
+function toggleChatbot() {
+  if (chatSection.style.display === 'none' || chatSection.style.display === '') {
+    chatSection.style.display = 'block';
+  } else {
+    chatSection.style.display = 'none';
+  }
+}
+
+function sendMessage() {
+  const msg = chatInput.value.trim();
+  if (!msg) return;
+  displayResponse(msg);
+  chatInput.value = '';
+}
+
+function quickAsk(keyword) {
+  displayResponse(keyword);
+}
+
+function displayResponse(msg) {
+  // Clear previous messages
+  chatMessages.innerHTML = '';
+
+  // User message
+  const userMsg = document.createElement('p');
+  userMsg.textContent = msg;
+  userMsg.classList.add('user-msg');
+  chatMessages.appendChild(userMsg);
+
+  // Bot response
+  const botReply = document.createElement('p');
+  botReply.classList.add('bot-msg');
+  const text = msg.toLowerCase();
+
+  if (text.includes('hello') || text.includes('hi')) {
+    botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
+  } 
+  else if (text.includes('skills')) {
+    botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
+  } 
+  else if (text.includes('project') || text.includes('projects')) {
+    botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
+  } 
+  else if (text.includes('contact') || text.includes('email')) {
+    botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
+  } 
+  else if (text.includes('linkedin')) {
+    botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
+  } 
+  else if (text.includes('github')) {
+    botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
+  } 
+  else {
+    botReply.textContent = 'I am still learning! Try asking about skills, projects, or contact info.';
   }
 
-  function quickAsk(keyword) {
-    displayResponse(keyword);
-  }
-
-  function displayResponse(msg) {
-    chatMessages.innerHTML = '';
-
-    const userMsg = document.createElement('p');
-    userMsg.textContent = msg;
-    userMsg.classList.add('user-msg');
-    chatMessages.appendChild(userMsg);
-
-    const botReply = document.createElement('p');
-    botReply.classList.add('bot-msg');
-    const text = msg.toLowerCase();
-
-    if (text.includes('hello') || text.includes('hi')) {
-      botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
-    } else if (text.includes('skills')) {
-      botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
-    } else if (text.includes('project') || text.includes('projects')) {
-      botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
-    } else if (text.includes('contact') || text.includes('email')) {
-      botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
-    } else if (text.includes('linkedin')) {
-      botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
-    } else if (text.includes('github')) {
-      botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
-    } else {
-      botReply.textContent = 'I am still learning! Try asking about skills, projects, or contact info.';
-    }
-
-    chatMessages.appendChild(botReply);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
+  chatMessages.appendChild(botReply);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
 </script>
+
 
 </body>
 </html>
