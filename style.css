@@ -1,301 +1,67 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+const chatSection = document.getElementById('chatbot');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input');
+
+function toggleChatbot() {
+  chatSection.classList.toggle('active');
 }
 
-body {
-  background: #f9f9f9;
-  color: #222;
-  line-height: 1.6;
+// Close chatbot when clicking outside
+document.addEventListener('click', function(e) {
+  if (chatSection.classList.contains('active') && !chatSection.contains(e.target) && e.target.getAttribute('onclick') !== "toggleChatbot()") {
+    chatSection.classList.remove('active');
+  }
+});
+
+chatInput.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") sendMessage();
+});
+
+function sendMessage() {
+  const msg = chatInput.value.trim();
+  if (!msg) return;
+  displayResponse(msg);
+  chatInput.value = '';
 }
 
-/* Navbar */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 3rem;
-  background: #1a73e8;
-  color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-nav h1 {
-  font-size: 1.8rem;
-}
-nav div a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 1.2rem;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-nav div a:hover {
-  color: #fbbc05;
+function quickAsk(keyword) {
+  displayResponse(keyword);
 }
 
-/* Hero / About Me Section with subtle corner bubbles */
-.hero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 6rem 3rem;
-  background: linear-gradient(135deg, #f0f4f8, #ffffff);
-  overflow: hidden;
+function displayResponse(msg) {
+  chatMessages.innerHTML = '';
+  const userMsg = document.createElement('p');
+  userMsg.textContent = msg;
+  userMsg.classList.add('user-msg');
+  chatMessages.appendChild(userMsg);
+
+  const botReply = document.createElement('p');
+  botReply.classList.add('bot-msg');
+  const text = msg.toLowerCase();
+
+  if (text.includes('hello')) botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work, languages, AI, or contact info.';
+  else if (text.includes('skills')) botReply.textContent = 'My skills: Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
+  else if (text.includes('project')) botReply.textContent = 'English → French Translator with real-time translation, evaluation metrics, voice support, FastAPI REST API.';
+  else if (text.includes('work')) botReply.textContent = 'Work Experience: Produce Associate at Walmart – Teamwork, Time Management, Customer Service.';
+  else if (text.includes('education')) botReply.textContent = 'Durham College – Honours Bachelor in AI (3rd Year), Rigveda International School – High School.';
+  else if (text.includes('contact')) botReply.innerHTML = 'Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
+  else if (text.includes('linkedin')) botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
+  else if (text.includes('github')) botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
+  else if (text.includes('ai')) botReply.textContent = 'Passionate about AI & ML, building NLP projects, translation systems, and chatbots.';
+  else botReply.textContent = 'I am still learning! Try asking about skills, projects, work, education, AI, or contact info.';
+
+  chatMessages.appendChild(botReply);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-.hero::before,
-.hero::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
-  background: #1a73e8;
-  z-index: 0;
-}
-
-.hero::before {
-  width: 120px;
-  height: 120px;
-  top: -40px;
-  left: -40px;
-}
-
-.hero::after {
-  width: 80px;
-  height: 80px;
-  bottom: -30px;
-  right: -30px;
-}
-
-/* Sections */
-section {
-  padding: 4rem 2rem;
-  text-align: center;
-  border-radius: 16px;
-  margin-bottom: 2rem;
-}
-
-/* Section Titles with icons */
-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  background: linear-gradient(90deg, #1a73e8, #34a853);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-section h2 i {
-  margin-right: 10px;
-  font-size: 1.3rem;
-  vertical-align: middle;
-}
-
-/* Skills */
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-}
-.skill-card {
-  padding: 16px 22px;
-  background: linear-gradient(145deg, #ffffff, #e8f0fe);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #222;
-}
-.skill-card i {
-  margin-right: 8px;
-  color: #1a73e8;
-}
-
-/* Projects */
-#projects {
-  background: #eaf1fc;
-}
-#projects p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto 1rem auto;
-}
-#projects i {
-  margin-right: 8px;
-  color: #1a73e8;
-  font-weight: bold;
-}
-.project-features {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.toggle-features {
-  display: inline-block;
-  margin: 8px 0;
-  color: #1a73e8;
-  cursor: pointer;
-  font-weight: 600;
-}
-.toggle-features:hover {
-  color: #fbbc05;
-}
-
-/* Work Experience */
-#work {
-  background: #e6f4ea;
-}
-#work p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto 1rem auto;
-}
-#work i {
-  margin-right: 8px;
-  color: #34a853;
-}
-
-/* Education */
-#education {
-  background: #fff8e1;
-}
-#education p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto 1rem auto;
-}
-#education i {
-  margin-right: 8px;
-  color: #fbbc05;
-}
-
-/* Contact */
-#contact {
-  background: linear-gradient(135deg, #f5f5f5, #ffffff);
-}
-#contact p {
-  font-size: 1.3rem;
-  margin: 1rem 0;
-  text-align: left;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#contact i {
-  margin-right: 8px;
-  color: #1a73e8;
-}
-#contact a {
-  color: #1a73e8;
-  text-decoration: none;
-  font-weight: 600;
-}
-#contact a:hover {
-  color: #fbbc05;
-  transform: scale(1.05);
-}
-
-/* Chatbot */
-#chatbot {
-  position: fixed;
-  bottom: 20px; /* visible position */
-  right: 20px;
-  width: 450px;
-  height: 700px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  transform: translateY(100%); /* hide below screen */
-  transition: transform 0.5s ease;
-  z-index: 200;
-}
-#chatbot.active {
-  transform: translateY(0); /* slide up into view */
-}
-
-.chatbot {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.chat-header {
-  background: #1a73e8;
-  color: #fff;
-  padding: 16px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.2rem;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
-.chat-messages {
-  flex: 4; 
-  padding: 16px;
-  overflow-y: auto;
-  font-size: 1.0rem;
-  background: #f1f8ff;
-}
-#chat-input {
-  padding: 14px;
-  font-size: 1.05rem;
-  border: none;
-  outline: none;
-  border-top: 1px solid #ccc;
-  width: calc(100% - 28px);
-}
-.chatbot button {
-  margin: 6px;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  background: #34a853;
-  color: #fff;
-  font-weight: 600;
-}
-.chatbot button:hover {
-  background: #1a73e8;
-}
-.user-msg, .bot-msg {
-  font-size: 1.15rem;
-  padding: 12px 16px;
-  margin: 8px 0;
-  border-radius: 12px;
-}
-.user-msg {
-  text-align: right;
-  font-weight: 600;
-}
-.bot-msg {
-  text-align: left;
-  background: #e8f0fe;
-}
-.quick-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 6px 0;
-}
-.quick-options button {
-  margin: 2px;
-  padding: 6px 10px; 
-  font-size: 0.85rem; 
-  border-radius: 12px;
+/* Project Features Toggle */
+function toggleFeatures(el) {
+  const featuresDiv = el.nextElementSibling;
+  if (featuresDiv.style.maxHeight) {
+    featuresDiv.style.maxHeight = null;
+    el.textContent = "Show Features ⬇";
+  } else {
+    featuresDiv.style.maxHeight = featuresDiv.scrollHeight + "px";
+    el.textContent = "Hide Features ⬆";
+  }
 }
