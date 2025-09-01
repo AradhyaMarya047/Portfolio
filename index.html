@@ -115,6 +115,12 @@
     function toggleChatbot() {
       chatSection.classList.toggle('active');
     }
+    // Close chatbot when clicking outside
+    document.addEventListener('click', function(e) {
+      if (chatSection.classList.contains('active') && !chatSection.contains(e.target) && e.target.getAttribute('onclick') !== "toggleChatbot()") {
+      chatSection.classList.remove('active');
+      }
+    });
 
     chatInput.addEventListener("keypress", function(e) {
       if (e.key === "Enter") sendMessage();
