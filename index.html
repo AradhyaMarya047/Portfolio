@@ -24,10 +24,8 @@
   <section class="hero" id="about">
     <h1>Hi, I’m Aradhya Marya 👋</h1>
     <p>3rd Year Honours Bachelor of Artificial Intelligence student at Durham College, Oshawa.</p>
-    <p>I’m passionate about applying AI and Machine Learning to solve real-world problems.  
-    I have experience building projects in Natural Language Processing, data analysis, and Python programming.</p>
-    <p>Currently, I am exploring projects involving translation, chatbots, and other AI-powered applications.  
-    I am actively seeking <b>part-time opportunities and internships</b> in AI/ML to further develop my skills and contribute to impactful projects.</p>
+    <p>I’m passionate about applying AI and Machine Learning to solve real-world problems. I have experience building projects in Natural Language Processing, data analysis, and Python programming.</p>
+    <p>Currently, I am exploring projects involving translation, chatbots, and other AI-powered applications. I am actively seeking <b>part-time opportunities and internships</b> in AI/ML to further develop my skills and contribute to impactful projects.</p>
   </section>
 
   <!-- Skills Section -->
@@ -55,100 +53,93 @@
       <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
     </div>
   </section>
-  
+
   <!-- Contact Section -->
-<section class="contact" id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a></p>
-  <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a></p>
-</section>
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a></p>
+    <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a></p>
+  </section>
 
-<!-- Chatbot Section -->
-<section id="chatbot" style="display:none;">
-  <div class="chatbot">
-    <div class="chat-header">Ask Me Anything</div>
-    <div class="chat-messages" id="chat-messages"></div>
-    <input type="text" id="chat-input" placeholder="Type a message..." />
-    <button onclick="sendMessage()">Send</button>
-    <div class="quick-options">
-      <button onclick="quickAsk('hello')">Hello</button>
-      <button onclick="quickAsk('skills')">Skills</button>
-      <button onclick="quickAsk('projects')">Projects</button>
-      <button onclick="quickAsk('contact')">Contact</button>
+  <!-- Chatbot Section -->
+  <section id="chatbot">
+    <div class="chatbot">
+      <div class="chat-header">Ask Me Anything</div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <input type="text" id="chat-input" placeholder="Type a message..." />
+      <button onclick="sendMessage()">Send</button>
+      <div class="quick-options">
+        <button onclick="quickAsk('hello')">Hello</button>
+        <button onclick="quickAsk('skills')">Skills</button>
+        <button onclick="quickAsk('projects')">Projects</button>
+        <button onclick="quickAsk('contact')">Contact</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- JS -->
+  <script>
+    const chatSection = document.getElementById('chatbot');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
 
-<!-- Chatbot JS -->
-<script>
-const chatSection = document.getElementById('chatbot');
-const chatMessages = document.getElementById('chat-messages');
-const chatInput = document.getElementById('chat-input');
+    // Toggle chatbot visibility
+    function toggleChatbot() {
+      chatSection.classList.toggle('active');
+    }
 
-// Toggle chatbot visibility
-function toggleChatbot() {
-  if (chatSection.style.display === 'none' || chatSection.style.display === '') {
-    chatSection.style.display = 'block';
-  } else {
-    chatSection.style.display = 'none';
-  }
-}
+    function sendMessage() {
+      const msg = chatInput.value.trim();
+      if (!msg) return;
+      displayResponse(msg);
+      chatInput.value = '';
+    }
 
-function sendMessage() {
-  const msg = chatInput.value.trim();
-  if (!msg) return;
-  displayResponse(msg);
-  chatInput.value = '';
-}
+    function quickAsk(keyword) {
+      displayResponse(keyword);
+    }
 
-function quickAsk(keyword) {
-  displayResponse(keyword);
-}
+    function displayResponse(msg) {
+      chatMessages.innerHTML = '';
 
-function displayResponse(msg) {
-  // Clear previous messages
-  chatMessages.innerHTML = '';
+      // User message
+      const userMsg = document.createElement('p');
+      userMsg.textContent = msg;
+      userMsg.classList.add('user-msg');
+      chatMessages.appendChild(userMsg);
 
-  // User message
-  const userMsg = document.createElement('p');
-  userMsg.textContent = msg;
-  userMsg.classList.add('user-msg');
-  chatMessages.appendChild(userMsg);
+      // Bot response
+      const botReply = document.createElement('p');
+      botReply.classList.add('bot-msg');
+      const text = msg.toLowerCase();
 
-  // Bot response
-  const botReply = document.createElement('p');
-  botReply.classList.add('bot-msg');
-  const text = msg.toLowerCase();
+      if (text.includes('hello') || text.includes('hi')) {
+        botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
+      } 
+      else if (text.includes('skills')) {
+        botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
+      } 
+      else if (text.includes('project') || text.includes('projects')) {
+        botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
+      } 
+      else if (text.includes('contact') || text.includes('email')) {
+        botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
+      } 
+      else if (text.includes('linkedin')) {
+        botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
+      } 
+      else if (text.includes('github')) {
+        botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
+      } 
+      else {
+        botReply.textContent = 'I am still learning! Try asking about skills, projects, or contact info.';
+      }
 
-  if (text.includes('hello') || text.includes('hi')) {
-    botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
-  } 
-  else if (text.includes('skills')) {
-    botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
-  } 
-  else if (text.includes('project') || text.includes('projects')) {
-    botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
-  } 
-  else if (text.includes('contact') || text.includes('email')) {
-    botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
-  } 
-  else if (text.includes('linkedin')) {
-    botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
-  } 
-  else if (text.includes('github')) {
-    botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
-  } 
-  else {
-    botReply.textContent = 'I am still learning! Try asking about skills, projects, or contact info.';
-  }
-
-  chatMessages.appendChild(botReply);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-</script>
-
+      chatMessages.appendChild(botReply);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  </script>
 
 </body>
 </html>
