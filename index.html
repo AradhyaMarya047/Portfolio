@@ -106,75 +106,67 @@
 
   <!-- JS -->
   <script>
-    const chatSection = document.getElementById('chatbot');
-    const chatMessages = document.getElementById('chat-messages');
-    const chatInput = document.getElementById('chat-input');
+const chatSection = document.getElementById('chatbot');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input');
 
-    function toggleChatbot() {
-      chatSection.classList.toggle('active');
-      chatInput.focus();
-    }
+function toggleChatbot() {
+  chatSection.classList.toggle('active');
+}
 
-    document.addEventListener('click', function(e) {
-      if (chatSection.classList.contains('active') &&
-          !chatSection.contains(e.target) &&
-          e.target.getAttribute('onclick') !== "toggleChatbot()") {
-        chatSection.classList.remove('active');
-      }
-    });
+chatInput.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") sendMessage();
+});
 
-    chatInput.addEventListener("keypress", function(e) {
-      if (e.key === "Enter") sendMessage();
-    });
+function sendMessage() {
+  const msg = chatInput.value.trim();
+  if (!msg) return;
+  displayResponse(msg);
+  chatInput.value = '';
+}
 
-    function sendMessage() {
-      const msg = chatInput.value.trim();
-      if (!msg) return;
-      displayResponse(msg);
-      chatInput.value = '';
-    }
+function quickAsk(keyword) {
+  displayResponse(keyword);
+}
 
-    function quickAsk(keyword) {
-      displayResponse(keyword);
-    }
+function displayResponse(msg) {
+  chatMessages.innerHTML = '';
+  const userMsg = document.createElement('p');
+  userMsg.textContent = msg;
+  userMsg.classList.add('user-msg');
+  chatMessages.appendChild(userMsg);
 
-    function displayResponse(msg) {
-      chatMessages.innerHTML = '';
-      const userMsg = document.createElement('p');
-      userMsg.textContent = msg;
-      userMsg.classList.add('user-msg');
-      chatMessages.appendChild(userMsg);
+  const botReply = document.createElement('p');
+  botReply.classList.add('bot-msg');
+  const text = msg.toLowerCase();
 
-      const botReply = document.createElement('p');
-      botReply.classList.add('bot-msg');
-      const text = msg.toLowerCase();
+  if (text.includes('hello')) botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work, languages, AI, or contact info.';
+  else if (text.includes('skills')) botReply.textContent = 'My skills: Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
+  else if (text.includes('project')) botReply.textContent = 'English → French Translator with real-time translation, evaluation metrics, voice support, FastAPI REST API.';
+  else if (text.includes('work')) botReply.textContent = 'Work Experience: Produce Associate at Walmart – Teamwork, Time Management, Customer Service.';
+  else if (text.includes('education')) botReply.textContent = 'Durham College – Honours Bachelor in AI (3rd Year), Rigveda International School – High School.';
+  else if (text.includes('contact')) botReply.innerHTML = 'Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
+  else if (text.includes('linkedin')) botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
+  else if (text.includes('github')) botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
+  else if (text.includes('ai')) botReply.textContent = 'Passionate about AI & ML, building NLP projects, translation systems, and chatbots.';
+  else botReply.textContent = 'I am still learning! Try asking about skills, projects, work, education, AI, or contact info.';
 
-      if (text.includes('hello')) botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work, languages, AI, or contact info.';
-      else if (text.includes('skills')) botReply.textContent = 'My skills: Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
-      else if (text.includes('project')) botReply.textContent = 'English → French Translator with real-time translation, evaluation metrics, voice support, FastAPI REST API.';
-      else if (text.includes('work')) botReply.textContent = 'Work Experience: Produce Associate at Walmart – Teamwork, Time Management, Customer Service.';
-      else if (text.includes('education')) botReply.textContent = 'Durham College – Honours Bachelor in AI (3rd Year), Rigveda International School – High School.';
-      else if (text.includes('contact')) botReply.innerHTML = 'Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
-      else if (text.includes('linkedin')) botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
-      else if (text.includes('github')) botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
-      else if (text.includes('ai')) botReply.textContent = 'Passionate about AI & ML, building NLP projects, translation systems, and chatbots.';
-      else botReply.textContent = 'I am still learning! Try asking about skills, projects, work, education, AI, or contact info.';
+  chatMessages.appendChild(botReply);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
 
-      chatMessages.appendChild(botReply);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
+function toggleFeatures(el) {
+  const featuresDiv = el.nextElementSibling;
+  if (featuresDiv.style.maxHeight) {
+    featuresDiv.style.maxHeight = null;
+    el.textContent = "Show Features ⬇";
+  } else {
+    featuresDiv.style.maxHeight = featuresDiv.scrollHeight + "px";
+    el.textContent = "Hide Features ⬆";
+  }
+}
+</script>
 
-    function toggleFeatures(el) {
-      const featuresDiv = el.nextElementSibling;
-      if (featuresDiv.style.maxHeight) {
-        featuresDiv.style.maxHeight = null;
-        el.textContent = "Show Features ⬇";
-      } else {
-        featuresDiv.style.maxHeight = featuresDiv.scrollHeight + "px";
-        el.textContent = "Hide Features ⬆";
-      }
-    }
-  </script>
 
 </body>
 </html>
