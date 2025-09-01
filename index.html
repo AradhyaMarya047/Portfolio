@@ -74,51 +74,63 @@
 
   <!-- Chatbot JS -->
   <script>
-    const chatMessages = document.getElementById('chat-messages');
-    const chatInput = document.getElementById('chat-input');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input');
 
-    function sendMessage() {
-      const msg = chatInput.value.trim();
-      if (!msg) return;
+function sendMessage() {
+  const msg = chatInput.value.trim();
+  if (!msg) return;
 
-      displayResponse(msg);
-      chatInput.value = '';
-    }
+  displayResponse(msg);
+  chatInput.value = '';
+}
 
-    function quickAsk(keyword) {
-      displayResponse(keyword);
-    }
+function quickAsk(keyword) {
+  displayResponse(keyword);
+}
 
-    function displayResponse(msg) {
-      // Clear previous messages
-      chatMessages.innerHTML = '';
+function displayResponse(msg) {
+  // Clear previous messages
+  chatMessages.innerHTML = '';
 
-      // User message
-      const userMsg = document.createElement('p');
-      userMsg.textContent = msg;
-      userMsg.classList.add('user-msg');
-      chatMessages.appendChild(userMsg);
+  // User message
+  const userMsg = document.createElement('p');
+  userMsg.textContent = msg;
+  userMsg.classList.add('user-msg');
+  chatMessages.appendChild(userMsg);
 
-      // Bot response
-      const botReply = document.createElement('p');
-      botReply.classList.add('bot-msg');
-      const text = msg.toLowerCase();
+  // Bot response
+  const botReply = document.createElement('p');
+  botReply.classList.add('bot-msg');
+  const text = msg.toLowerCase();
 
-      if (text.includes('hello') || text.includes('hi')) {
-        botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
-      } else if (text.includes('skills')) {
-        botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
-      } else if (text.includes('project')) {
-        botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
-      } else if (text.includes('contact')) {
-        botReply.textContent = 'You can reach me at aradhyamarya@gmail.com or on LinkedIn/GitHub.';
-      } else {
-        botReply.textContent = 'I am still learning! Try asking about skills, projects, or contact info.';
-      }
+  if (text.includes('hello') || text.includes('hi')) {
+    botReply.textContent = 'Hello! I’m Aradhya’s AI Portfolio chatbot. How can I help you?';
+  } 
+  else if (text.includes('skills')) {
+    botReply.textContent = 'I am skilled in Python, NLP, Machine Learning, HTML, CSS, TensorFlow, PyTorch, and more.';
+  } 
+  else if (text.includes('project') || text.includes('projects')) {
+    botReply.textContent = 'I built an English to French Translator project using Python and Googletrans API.';
+  } 
+  else if (text.includes('contact') || text.includes('email')) {
+    botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
+  } 
+  else if (text.includes('linkedin')) {
+    botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
+  } 
+  else if (text.includes('github')) {
+    botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
+  } 
+  else {
+    botReply.textContent = 'I am still learning! Try asking about skills, projects, or contact info.';
+  }
 
-      chatMessages.appendChild(botReply);
-    }
-  </section>
+  chatMessages.appendChild(botReply);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+</script>
+</section>
 
   <!-- Contact Section -->
   <section class="contact" id="contact">
