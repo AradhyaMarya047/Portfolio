@@ -38,8 +38,9 @@ nav div a:hover {
   color: #fbbc05;
 }
 
-/* Hero / About Me Section */
+/* Hero / About Me Section with Bubble Effect */
 .hero {
+  position: relative; /* Required for absolute positioning of bubbles */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,18 +48,50 @@ nav div a:hover {
   text-align: center;
   padding: 6rem 3rem;
   background: linear-gradient(135deg, #f0f4f8, #ffffff);
+  overflow: hidden; /* Hide overflowing bubbles */
 }
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #1a73e8;
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  background: #1a73e8;
+  animation: bubbleMove 20s linear infinite;
 }
-.hero p {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  max-width: 800px;
-  font-weight: 500;
+
+.hero::before {
+  width: 100px;
+  height: 100px;
+  left: 10%;
+  bottom: -50px;
+  animation-duration: 25s;
 }
+
+.hero::after {
+  width: 60px;
+  height: 60px;
+  left: 70%;
+  bottom: -30px;
+  animation-duration: 18s;
+}
+
+@keyframes bubbleMove {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-1200px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+
 
 /* Sections */
 section {
@@ -200,20 +233,20 @@ section h2 i {
 /* Chatbot */
 #chatbot {
   position: fixed;
-  bottom: 20px;
+  bottom: -800px; /* hidden off-screen */
   right: 20px;
   width: 450px;
   height: 700px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  display: none;
   transition: bottom 0.5s ease;
   z-index: 200;
 }
 #chatbot.active {
-  display: flex;
+  bottom: 20px; /* visible */
 }
+
 .chatbot {
   display: flex;
   flex-direction: column;
