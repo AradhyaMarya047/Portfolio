@@ -4,29 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aradhya Marya | AI Portfolio</title>
+  
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 transition-colors duration-500">
 
   <!-- Navbar -->
-  <nav>
-    <h1>Aradhya Marya</h1>
-    <div>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#work">Work Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+  <nav class="flex justify-between items-center px-6 py-4 bg-blue-600 text-white sticky top-0 z-50">
+    <h1 class="text-2xl font-bold">Aradhya Marya</h1>
+    <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+    <div id="menu" class="hidden md:flex space-x-6">
+      <a href="#about" class="hover:text-yellow-400">About</a>
+      <a href="#skills" class="hover:text-yellow-400">Skills</a>
+      <a href="#projects" class="hover:text-yellow-400">Projects</a>
+      <a href="#work" class="hover:text-yellow-400">Work</a>
+      <a href="#education" class="hover:text-yellow-400">Education</a>
+      <a href="#contact" class="hover:text-yellow-400">Contact</a>
       <a href="#" onclick="toggleChatbot(); return false;">Chatbot 🤖</a>
+      <button id="theme-toggle" class="ml-4 px-2 py-1 bg-yellow-400 text-black rounded">🌙</button>
     </div>
   </nav>
 
   <!-- About Section -->
   <section class="hero" id="about">
-    <h1>Hi, I’m Aradhya Marya 👋</h1>
-    <p>I am passionate about my work in Artificial Intelligence and enjoy applying AI and Machine Learning to solve practical problems. I am continually exploring projects involving NLP, translation, chatbots, and other AI-powered applications. I am seeking part-time opportunities and internships to enhance my skills and contribute effectively.</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I’m <span class="text-blue-600">Aradhya Marya</span> 👋</h1>
+    <p class="max-w-2xl">I am passionate about my work in Artificial Intelligence and enjoy applying AI and Machine Learning to solve practical problems. I am continually exploring projects involving NLP, translation, chatbots, and other AI-powered applications.</p>
+    <p class="mt-4 text-xl"><span id="typing"></span></p>
+    <a href="resume.pdf" download class="mt-6 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-yellow-400 hover:text-black transition">Download Resume</a>
   </section>
 
   <!-- Skills Section -->
@@ -47,36 +58,32 @@
   <!-- Projects Section -->
   <section id="projects">
     <h2><i class="fas fa-code"></i> Projects</h2>
-    <p><i class="fas fa-arrow-right"></i> <b>English → French Translator</b></p>
-    <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
-    <p>GitHub: <a href="https://github.com/AradhyaMarya047/Translator" target="_blank">View on GitHub</a></p>
-    <span class="toggle-features" onclick="toggleFeatures(this)"><b>Show Features ⬇</b></span>
-    <div class="project-features">
-      <ul>
-        <li>Real-time multilingual translation</li>
-        <li>Automatic quality evaluation using BLEU and Perplexity</li>
-        <li>Voice pronunciation support</li>
-        <li>FastAPI-powered REST API with Swagger UI</li>
-      </ul>
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div class="p-6 bg-white rounded-lg shadow-lg hover:scale-105 transition">
+        <h3 class="text-xl font-semibold mb-2"><i class="fas fa-arrow-right"></i> English → French Translator</h3>
+        <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
+        <a href="https://github.com/AradhyaMarya047/Translator" target="_blank" class="text-blue-600 font-semibold hover:underline">View on GitHub</a>
+      </div>
+      <!-- Add more project cards here -->
     </div>
   </section>
 
-  <!-- Work Experience Section -->
+  <!-- Work Experience -->
   <section id="work">
     <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
     <p><i class="fas fa-arrow-right"></i> <b>Produce Associate – Walmart (Part-Time)</b></p>
     <p>March 2024 – Present</p>
-    <p>As a Produce Associate at Walmart, I coordinated with my team to maintain stock levels, manage inventory rotations, and ensure product quality in a fast-paced retail environment. Balancing restocking responsibilities with customer service interactions allowed me to refine my ability to multitask, work efficiently under deadlines, and remain adaptable when unexpected challenges arose.</p>
+    <p>As a Produce Associate at Walmart, I coordinated with my team to maintain stock levels, manage inventory rotations, and ensure product quality in a fast-paced retail environment.</p>
   </section>
 
-  <!-- Education Section -->
+  <!-- Education -->
   <section id="education">
     <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-    <p><i class="fas fa-arrow-right"></i> <b>Durham College, Oshawa, Canada</b> – Honours Bachelor in Artificial Intelligence (3rd Year, Sept 2023 – Present)</p>
-    <p><i class="fas fa-arrow-right"></i> <b>Rigveda International School, Tohana, India</b> – High School (2015 – 2022)</p>
+    <p><i class="fas fa-arrow-right"></i> <b>Durham College</b> – Honours Bachelor in Artificial Intelligence (3rd Year, Sept 2023 – Present)</p>
+    <p><i class="fas fa-arrow-right"></i> <b>Rigveda International School</b> – High School (2015 – 2022)</p>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact">
     <h2><i class="fas fa-address-book"></i> Contact</h2>
     <p><i class="fas fa-envelope"></i> Email: <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
@@ -95,172 +102,46 @@
         <button onclick="quickAsk('hello')">Hello</button>
         <button onclick="quickAsk('skills')">Skills</button>
         <button onclick="quickAsk('projects')">Projects</button>
-        <button onclick="quickAsk('work')">Work Experience</button>
+        <button onclick="quickAsk('work')">Work</button>
         <button onclick="quickAsk('education')">Education</button>
         <button onclick="quickAsk('contact')">Contact</button>
-        <button onclick="quickAsk('languages')">Languages</button>
-        <button onclick="quickAsk('about AI')">About Me</button>
       </div>
     </div>
   </div>
 
-  <!-- JS -->
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
-const chatSection = document.getElementById('chatbot');
-const chatMessages = document.getElementById('chat-messages');
-const chatInput = document.getElementById('chat-input');
-const toggleBtn = document.querySelector('a[onclick*="toggleChatbot"]');
+    // Mobile menu toggle
+    const menuBtn = document.getElementById("menu-btn");
+    const menu = document.getElementById("menu");
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
 
-function toggleChatbot() {
-  chatSection.classList.toggle('active');
-}
+    // Dark mode toggle
+    const themeBtn = document.getElementById("theme-toggle");
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("bg-gray-900");
+      document.body.classList.toggle("text-white");
+    });
 
-// Close chatbot when clicking outside
-document.addEventListener('click', function(e) {
-  if (chatSection.classList.contains('active') && 
-      !chatSection.contains(e.target) && 
-      e.target !== toggleBtn) {
-    chatSection.classList.remove('active');
-  }
-});
+    // Typing effect
+    new Typed("#typing", {
+      strings: ["AI Enthusiast", "NLP Explorer", "Problem Solver", "Fast Learner"],
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true
+    });
 
-chatInput.addEventListener("keypress", function(e) {
-  if (e.key === "Enter") sendMessage();
-});
-
-function sendMessage() {
-  const msg = chatInput.value.trim();
-  if (!msg) return;
-  displayResponse(msg);
-  chatInput.value = '';
-}
-
-function quickAsk(keyword) {
-  displayResponse(keyword);
-}
-
-function displayResponse(msg) {
-    chatMessages.innerHTML = '';
-    const userMsg = document.createElement('p');
-    userMsg.textContent = msg;
-    userMsg.classList.add('user-msg');
-    chatMessages.appendChild(userMsg);
-
-    const botReply = document.createElement('p');
-    botReply.classList.add('bot-msg');
-    const text = msg.toLowerCase();
-
-    // Greetings
-    if (text.includes('hello') || text.includes('hi') || text.includes('hey')) {
-        botReply.textContent = 'Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work, languages, AI, or contact info.';
-    } 
-    // Who is Aradhya
-    else if (
-        text.includes('who is aradhya') ||
-        text.includes('who is aradhya marya') ||
-        text.includes('about aradhya') ||
-        text.includes('about aradhya marya')
-    ) {
-        botReply.textContent = "Aradhya Marya is a passionate Artificial Intelligence student and aspiring developer, skilled in Python, Machine Learning, NLP, and AI-powered applications. He builds projects like chatbots, translation systems, and other real-world AI solutions.";
-    }
-    // Skills
-    else if (
-        text.includes('skills') ||
-        text.includes('what can you do') ||
-        text.includes('tech stack')
-    ) {
-        botReply.textContent = 'My skills: Python, HTML & CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas & NumPy, Git & GitHub.';
-    } 
-    // Projects
-    else if (
-        text.includes('project') ||
-        text.includes('projects') ||
-        text.includes('portfolio projects') ||
-        text.includes('what did you build')
-    ) {
-        botReply.textContent = 'I built an English → French Translator with real-time multilingual translation, automatic evaluation metrics, voice pronunciation, and FastAPI REST API.';
-    } 
-    // Work Experience
-    else if (
-        text.includes('work') ||
-        text.includes('job') ||
-        text.includes('experience') ||
-        text.includes('employment')
-    ) {
-        botReply.textContent = 'Work Experience: Produce Associate at Walmart (Part-Time) – Teamwork, Time Management, Reliability, Customer Service, Attention to Detail.';
-    } 
-    // Education
-else if (
-    text.includes('college') ||
-    text.includes('durham college')
-) {
-    botReply.textContent = 'College: Durham College – Honours Bachelor in Artificial Intelligence (3rd Year, Sept 2023 – Present).';
-} 
-else if (
-    text.includes('school') ||
-    text.includes('rigveda international school')
-) {
-    botReply.textContent = 'School: Rigveda International School, Tohana, India – High School (2015 – 2022).';
-}
- 
-    // Contact / Email
-    else if (
-        text.includes('contact') ||
-        text.includes('email') ||
-        text.includes('reach you') ||
-        text.includes('message')
-    ) {
-        botReply.innerHTML = 'You can reach me at <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a>';
-    } 
-    // LinkedIn
-    else if (
-        text.includes('linkedin') ||
-        text.includes('profile') ||
-        text.includes('connect')
-    ) {
-        botReply.innerHTML = 'LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">linkedin.com/in/aradhya-marya-24aa01272</a>';
-    } 
-    // GitHub
-    else if (
-        text.includes('github') ||
-        text.includes('code') ||
-        text.includes('projects repo')
-    ) {
-        botReply.innerHTML = 'GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank">github.com/AradhyaMarya047</a>';
-    } 
-    // AI Knowledge
-    else if (
-        text.includes('ai') ||
-        text.includes('artificial intelligence') ||
-        text.includes('machine learning') ||
-        text.includes('ml') ||
-        text.includes('nlp')
-    ) {
-        botReply.textContent = 'I am passionate about AI & ML, building NLP projects, translation systems, and chatbots.';
-    } 
-    // Default fallback
-    else {
-        botReply.textContent = 'I am still learning! Try asking about skills, projects, work, education, AI, or contact info.';
-    }
-
-    chatMessages.appendChild(botReply);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-
-function toggleFeatures(el) {
-  const featuresDiv = el.nextElementSibling;
-  if (featuresDiv.style.maxHeight) {
-    featuresDiv.style.maxHeight = null;
-    el.textContent = "Show Features ⬇";
-  } else {
-    featuresDiv.style.maxHeight = featuresDiv.scrollHeight + "px";
-    el.textContent = "Hide Features ⬆";
-  }
-}
-</script>
-
-
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  </script>
 
 </body>
 </html>
