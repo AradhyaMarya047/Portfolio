@@ -1,229 +1,62 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aradhya Marya | AI Portfolio</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Tailwind Config (Enable Dark Mode) -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
-    }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-gray-50 text-gray-800 font-[Inter] transition-colors duration-500 relative">
-
+<body>
   <!-- Background Animation -->
-  <div id="tsparticles"></div>
+  <div id="particles-js"></div>
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-white/80 backdrop-blur shadow-md sticky top-0 z-50">
-    <h1 class="text-2xl font-bold text-blue-600">Aradhya Marya</h1>
-    <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
-    <div id="menu" class="hidden md:flex space-x-6 font-semibold">
-      <a href="#about" class="hover:underline">About</a>
-      <a href="#skills" class="hover:underline">Skills</a>
-      <a href="#projects" class="hover:underline">Projects</a>
-      <a href="#work" class="hover:underline">Work</a>
-      <a href="#education" class="hover:underline">Education</a>
-      <a href="#contact" class="hover:underline">Contact</a>
-      <a href="#" onclick="toggleChatbot(); return false;">Chatbot 🤖</a>
-      <button id="theme-toggle" class="ml-4 px-2 py-1 bg-blue-600 text-white rounded">🌙</button>
-    </div>
-  </nav>
+  <header>
+    <nav>
+      <div class="logo">Your <span>Portfolio</span></div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Hero -->
-  <section id="about" class="hero text-center relative z-10">
-    <h1 class="text-5xl md:text-6xl font-bold mb-4">Hi, I’m <span class="text-blue-600 dark:text-blue-400">Aradhya Marya</span> 👋</h1>
-    <p class="text-lg max-w-2xl mx-auto text-gray-600 dark:text-gray-300">I am passionate about Artificial Intelligence and Machine Learning, building real-world AI-powered applications like translators, chatbots, and APIs.</p>
-    <p class="mt-4 text-xl text-gray-700 dark:text-gray-200"><span id="typing"></span></p>
-    <div class="mt-6 space-x-4">
-      <a href="resume.pdf" download class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition">Download Resume</a>
-      <a href="#projects" class="bg-gray-200 dark:bg-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">View Projects</a>
-    </div>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
+    <p>I teach machines to order the world, understand its meaning, and act with purpose.</p>
+    <button class="btn">View My Work</button>
   </section>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2><i class="fas fa-lightbulb"></i> Skills</h2>
-    <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-      <span class="badge"><i class="fab fa-python"></i> Python</span>
-      <span class="badge"><i class="fab fa-html5"></i> HTML & CSS</span>
-      <span class="badge"><i class="fab fa-java"></i> Java</span>
-      <span class="badge"><i class="fas fa-robot"></i> TensorFlow</span>
-      <span class="badge"><i class="fas fa-cogs"></i> PyTorch</span>
-      <span class="badge"><i class="fas fa-brain"></i> Scikit-learn</span>
-      <span class="badge"><i class="fas fa-database"></i> Pandas & NumPy</span>
-      <span class="badge"><i class="fab fa-git-alt"></i> Git & GitHub</span>
-    </div>
-  </section>
+  <!-- Rest of your sections -->
+  <section id="about">...</section>
+  <section id="work">...</section>
+  <section id="skills">...</section>
+  <section id="projects">...</section>
+  <section id="contact">...</section>
 
-  <!-- Projects -->
-  <section id="projects">
-    <h2><i class="fas fa-code"></i> Projects</h2>
-    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      <div class="project-card">
-        <h3 class="text-xl font-semibold mb-2"><i class="fas fa-arrow-right"></i> English → French Translator</h3>
-        <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
-        <div class="mt-3 space-x-3">
-          <a href="https://github.com/AradhyaMarya047/Translator" target="_blank" class="btn-primary">GitHub</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work -->
-  <section id="work">
-    <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
-    <ul class="timeline max-w-3xl mx-auto text-left">
-      <li>
-        <div class="content">
-          <h3 class="font-semibold">Produce Associate – Walmart</h3>
-          <span class="text-sm text-gray-500">March 2024 – Present</span>
-          <p>Coordinated stock levels, managed inventory rotations, ensured product quality, and provided excellent customer service in a fast-paced environment.</p>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Education -->
-  <section id="education">
-    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-    <ul class="timeline max-w-3xl mx-auto text-left">
-      <li>
-        <div class="content">
-          <h3 class="font-semibold">Durham College, Oshawa</h3>
-          <span class="text-sm text-gray-500">Honours Bachelor in Artificial Intelligence (2023 – Present)</span>
-        </div>
-      </li>
-      <li>
-        <div class="content">
-          <h3 class="font-semibold">Rigveda International School, India</h3>
-          <span class="text-sm text-gray-500">High School (2015 – 2022)</span>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2><i class="fas fa-address-book"></i> Contact</h2>
-    <p><i class="fas fa-envelope"></i> <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
-    <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">LinkedIn</a></p>
-    <p><i class="fab fa-github"></i> <a href="https://github.com/AradhyaMarya047" target="_blank">GitHub</a></p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-6 bg-gray-100 dark:bg-gray-800 text-center text-gray-600 dark:text-gray-300 relative z-10">
-    <p>© 2025 Aradhya Marya ·</p>
-    <div class="flex justify-center space-x-4 mt-2">
-      <a href="mailto:aradhyamarya@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/AradhyaMarya047" target="_blank"><i class="fab fa-github"></i></a>
-    </div>
-  </footer>
-
-  <!-- Chatbot -->
-  <div id="chatbot">
-    <div class="chatbot">
-      <div class="chat-header">Ask Me Anything</div>
-      <div class="chat-messages" id="chat-messages"></div>
-      <input type="text" id="chat-input" placeholder="Type a message..." />
-      <button onclick="sendMessage()">Send</button>
-    </div>
-  </div>
-
-  <!-- JS Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
-
-<script>
-  // Navbar mobile menu
-  document.getElementById("menu-btn").addEventListener("click", () => {
-    document.getElementById("menu").classList.toggle("hidden");
-  });
-
-  // Dark mode toggle
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-  });
-
-  // Chatbot toggle
-  function toggleChatbot() {
-    document.getElementById("chatbot").classList.toggle("active");
-  }
-
-  // Chatbot logic
-  const chatMessages = document.getElementById('chat-messages');
-  const chatInput = document.getElementById('chat-input');
-
-  function sendMessage() {
-    const msg = chatInput.value.trim();
-    if (!msg) return;
-    displayResponse(msg);
-    chatInput.value = '';
-  }
-
-  function displayResponse(msg) {
-    chatMessages.innerHTML = '';
-
-    const userMsg = document.createElement('p');
-    userMsg.textContent = msg;
-    userMsg.classList.add('user-msg');
-    chatMessages.appendChild(userMsg);
-
-    const botReply = document.createElement('p');
-    botReply.classList.add('bot-msg');
-
-    if (msg.toLowerCase().includes("hello")) {
-      botReply.textContent = "Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work, or contact info.";
-    } else if (msg.toLowerCase().includes("skills")) {
-      botReply.textContent = "My skills: Python, HTML, CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas, GitHub.";
-    } else if (msg.toLowerCase().includes("projects")) {
-      botReply.textContent = "Main project: English → French Translator using Transformers + FastAPI.";
-    } else {
-      botReply.textContent = "I am still learning! Try asking about skills, projects, work, education, or contact info.";
-    }
-
-    chatMessages.appendChild(botReply);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  chatInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") sendMessage();
-  });
-
-  // Typing animation
-  new Typed("#typing", {
-    strings: ["AI Developer", "NLP Explorer", "Problem Solver"],
-    typeSpeed: 60,
-    backSpeed: 40,
-    loop: true
-  });
-
-  // Background particles
-  window.addEventListener("load", () => {
-    tsParticles.load("tsparticles", {
-      background: { color: "transparent" },
-      particles: {
-        number: { value: 70 },
-        color: { value: "#1a73e8" },
-        links: { enable: true, color: "#34a853", distance: 120 },
-        move: { enable: true, speed: 1 },
-        size: { value: 3 },
-        opacity: { value: 0.6 }
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 120 },
+        "size": { "value": 3 },
+        "move": { "speed": 1 },
+        "line_linked": { "enable": false },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.6 }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" }
+        }
       }
     });
-  });
-</script>
+  </script>
+</body>
+</html>
