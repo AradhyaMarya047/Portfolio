@@ -126,7 +126,7 @@
 
   <!-- Footer -->
   <footer class="py-6 bg-gray-100 dark:bg-gray-800 text-center text-gray-600 dark:text-gray-300 relative z-10">
-    <p>© 2025 Aradhya Marya · Built with ❤️ using HTML, CSS & Tailwind</p>
+    <p>© 2025 Aradhya Marya ·</p>
     <div class="flex justify-center space-x-4 mt-2">
       <a href="mailto:aradhyamarya@gmail.com"><i class="fas fa-envelope"></i></a>
       <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -146,46 +146,84 @@
 
   <!-- JS Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
 
-  <script>
-    // Mobile menu
-    document.getElementById("menu-btn").addEventListener("click", () => {
-      document.getElementById("menu").classList.toggle("hidden");
-    });
+<script>
+  // Navbar mobile menu
+  document.getElementById("menu-btn").addEventListener("click", () => {
+    document.getElementById("menu").classList.toggle("hidden");
+  });
 
-    // Dark mode toggle
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-    });
+  // Dark mode toggle
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+  });
 
-    // Chatbot toggle
-    function toggleChatbot() {
-      document.getElementById("chatbot").classList.toggle("active");
+  // Chatbot toggle
+  function toggleChatbot() {
+    document.getElementById("chatbot").classList.toggle("active");
+  }
+
+  // Chatbot logic
+  const chatMessages = document.getElementById('chat-messages');
+  const chatInput = document.getElementById('chat-input');
+
+  function sendMessage() {
+    const msg = chatInput.value.trim();
+    if (!msg) return;
+    displayResponse(msg);
+    chatInput.value = '';
+  }
+
+  function displayResponse(msg) {
+    chatMessages.innerHTML = '';
+
+    const userMsg = document.createElement('p');
+    userMsg.textContent = msg;
+    userMsg.classList.add('user-msg');
+    chatMessages.appendChild(userMsg);
+
+    const botReply = document.createElement('p');
+    botReply.classList.add('bot-msg');
+
+    if (msg.toLowerCase().includes("hello")) {
+      botReply.textContent = "Hello! I am Aradhya’s AI Portfolio chatbot. Ask me about skills, projects, education, work, or contact info.";
+    } else if (msg.toLowerCase().includes("skills")) {
+      botReply.textContent = "My skills: Python, HTML, CSS, Java, TensorFlow, PyTorch, Scikit-learn, Pandas, GitHub.";
+    } else if (msg.toLowerCase().includes("projects")) {
+      botReply.textContent = "Main project: English → French Translator using Transformers + FastAPI.";
+    } else {
+      botReply.textContent = "I am still learning! Try asking about skills, projects, work, education, or contact info.";
     }
 
-    // Typing animation
-    new Typed("#typing", {
-      strings: ["AI Developer", "NLP Explorer", "Problem Solver"],
-      typeSpeed: 60,
-      backSpeed: 40,
-      loop: true
-    });
+    chatMessages.appendChild(botReply);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
 
-    // Particles background
-    document.addEventListener("DOMContentLoaded", () => {
-      tsParticles.load("tsparticles", {
-        background: { color: "transparent" },
-        particles: {
-          number: { value: 70 },
-          color: { value: "#1a73e8" },
-          links: { enable: true, color: "#34a853", distance: 120 },
-          move: { enable: true, speed: 1 },
-          size: { value: 3 },
-          opacity: { value: 0.6 }
-        }
-      });
+  chatInput.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  // Typing animation
+  new Typed("#typing", {
+    strings: ["AI Developer", "NLP Explorer", "Problem Solver"],
+    typeSpeed: 60,
+    backSpeed: 40,
+    loop: true
+  });
+
+  // Background particles
+  window.addEventListener("load", () => {
+    tsParticles.load("tsparticles", {
+      background: { color: "transparent" },
+      particles: {
+        number: { value: 70 },
+        color: { value: "#1a73e8" },
+        links: { enable: true, color: "#34a853", distance: 120 },
+        move: { enable: true, speed: 1 },
+        size: { value: 3 },
+        opacity: { value: 0.6 }
+      }
     });
-  </script>
-</body>
-</html>
+  });
+</script>
