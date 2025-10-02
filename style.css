@@ -73,24 +73,83 @@ header nav ul li a:hover {
 .hero p {
   margin: 15px 0;
   font-size: 18px;
-  max-width: 600px;
+  max-width: 650px;
+}
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+.btn,
+.btn-outline {
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
 }
 .btn {
   background: #8a5cf6;
   color: #fff;
-  padding: 12px 25px;
   border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.3s;
 }
 .btn:hover {
   background: #6d3fd6;
 }
+.btn-outline {
+  border: 2px solid #8a5cf6;
+  color: #8a5cf6;
+  background: transparent;
+}
+.btn-outline:hover {
+  background: #8a5cf6;
+  color: #fff;
+}
 
-/* Section Basics */
+/* Sections */
 section {
   min-height: 100vh;
-  padding: 80px 20px;
+  padding: 100px 20px;
   color: #fff;
+}
+section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #8a5cf6;
+}
+
+/* Skills List */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.skills-list li {
+  list-style: none;
+  padding: 8px 15px;
+  border: 1px solid #8a5cf6;
+  border-radius: 20px;
+  background: rgba(138, 92, 246, 0.1);
+  font-size: 15px;
+}
+
+/* Projects */
+.project-card {
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid #8a5cf6;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 15px rgba(138, 92, 246, 0.5);
+}
+
+/* Contact */
+#contact p {
+  font-size: 18px;
+  margin: 5px 0;
 }
