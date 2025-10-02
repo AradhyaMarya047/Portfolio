@@ -1,111 +1,16 @@
-/* General Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
-;
+  font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
-body {
-  background: #f9f9f9;
-  color: #222;
-  line-height: 1.6;
-}
-
-/* Navbar */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 3rem;
-  background: #1a73e8;
-  color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-nav h1 {
-  font-size: 1.8rem;
-}
-nav div a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 1.2rem;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-nav div a:hover {
-  color: #fbbc05;
-}
-
-/* Hero / About Me Section */
+/* Hero */
 .hero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 6rem 2rem;
   text-align: center;
-  padding: 6rem 3rem;
   background: linear-gradient(135deg, #f0f4f8, #ffffff);
-  overflow: hidden;
-}
-
-/* Floating corner bubbles */
-.hero::before,
-.hero::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  background: #1a73e8;
-  opacity: 0.1;
-  z-index: 0;
-  animation: floatBubble 6s ease-in-out infinite alternate;
-}
-
-.hero::before {
-  width: 120px;
-  height: 120px;
-  top: -40px;
-  left: -40px;
-}
-
-.hero::after {
-  width: 80px;
-  height: 80px;
-  bottom: -30px;
-  right: -30px;
-}
-
-/* Bubble floating animation */
-@keyframes floatBubble {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  50%  { transform: translate(15px, -15px) rotate(45deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-/* Sections */
-section {
-  padding: 4rem 2rem;
-  text-align: center;
-  border-radius: 16px;
-  margin-bottom: 2rem;
-}
-
-/* Section Titles with icons */
-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  background: linear-gradient(90deg, #1a73e8, #34a853);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-section h2 i {
-  margin-right: 10px;
-  font-size: 1.3rem;
-  vertical-align: middle;
 }
 
 /* Skills */
@@ -116,110 +21,26 @@ section h2 i {
   gap: 1.5rem;
 }
 .skill-card {
-  padding: 16px 22px;
-  background: linear-gradient(145deg, #ffffff, #e8f0fe);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-size: 1.1rem;
+  padding: 14px 20px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-weight: 600;
-  color: #222;
+  transition: transform 0.3s;
 }
-.skill-card i {
-  margin-right: 8px;
-  color: #1a73e8;
-}
-
-/* Projects */
-#projects {
-  background: #eaf1fc;
-}
-#projects p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto 1rem auto;
-}
-#projects i {
-  margin-right: 8px;
-  color: #1a73e8;
-  font-weight: bold;
-}
-.project-features {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.toggle-features {
-  display: inline-block;
-  margin: 8px 0;
-  color: #1a73e8;
-  cursor: pointer;
-  font-weight: 600;
-}
-.toggle-features:hover {
-  color: #fbbc05;
-}
-
-/* Work Experience */
-#work {
-  background: #e6f4ea;
-}
-#work p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto 1rem auto;
-}
-#work i {
-  margin-right: 8px;
-  color: #34a853;
-}
-
-/* Education */
-#education {
-  background: #fff8e1;
-}
-#education p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto 1rem auto;
-}
-#education i {
-  margin-right: 8px;
-  color: #fbbc05;
-}
-
-/* Contact */
-#contact {
-  background: linear-gradient(135deg, #f5f5f5, #ffffff);
-}
-#contact p {
-  font-size: 1.3rem;
-  margin: 1rem 0;
-  text-align: left;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#contact i {
-  margin-right: 8px;
-  color: #1a73e8;
-}
-#contact a {
-  color: #1a73e8;
-  text-decoration: none;
-  font-weight: 600;
-}
-#contact a:hover {
-  color: #fbbc05;
+.skill-card:hover {
   transform: scale(1.05);
+}
+
+/* Sections */
+section {
+  padding: 4rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Chatbot */
@@ -227,8 +48,8 @@ section h2 i {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 450px;
-  height: 700px;
+  width: 400px;
+  height: 600px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
@@ -239,7 +60,6 @@ section h2 i {
 #chatbot.active {
   transform: translateY(0);
 }
-
 .chatbot {
   display: flex;
   flex-direction: column;
@@ -248,64 +68,31 @@ section h2 i {
 .chat-header {
   background: #1a73e8;
   color: #fff;
-  padding: 16px;
+  padding: 14px;
   text-align: center;
-  font-weight: 600;
-  font-size: 1.2rem;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  font-weight: bold;
 }
 .chat-messages {
-  flex: 6; /* larger response area */
-  padding: 16px;
+  flex: 1;
+  padding: 12px;
   overflow-y: auto;
-  font-size: 1rem;
   background: #f1f8ff;
 }
 #chat-input {
-  padding: 14px;
-  font-size: 1.05rem;
+  padding: 10px;
   border: none;
   outline: none;
-  border-top: 1px solid #ccc;
-  width: calc(100% - 28px);
+  width: calc(100% - 20px);
 }
 .chatbot button {
   margin: 6px;
-  padding: 10px 16px;
+  padding: 8px 14px;
   border: none;
-  border-radius: 14px;
-  cursor: pointer;
+  border-radius: 10px;
   background: #34a853;
   color: #fff;
-  font-weight: 600;
+  cursor: pointer;
 }
 .chatbot button:hover {
   background: #1a73e8;
-}
-.user-msg, .bot-msg {
-  font-size: 1.15rem;
-  padding: 12px 16px;
-  margin: 8px 0;
-  border-radius: 12px;
-}
-.user-msg {
-  text-align: right;
-  font-weight: 600;
-}
-.bot-msg {
-  text-align: left;
-  background: #e8f0fe;
-}
-.quick-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 6px 0;
-}
-.quick-options button {
-  margin: 2px;
-  padding: 6px 10px; 
-  font-size: 0.85rem; 
-  border-radius: 12px;
 }
