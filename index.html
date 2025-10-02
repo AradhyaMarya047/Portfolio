@@ -11,7 +11,12 @@
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind Config (Enable Dark Mode) -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Custom CSS -->
@@ -39,7 +44,7 @@
   </nav>
 
   <!-- Hero -->
-  <section class="hero text-center relative z-10">
+  <section id="about" class="hero text-center relative z-10">
     <h1 class="text-5xl md:text-6xl font-bold mb-4">Hi, I’m <span class="text-blue-600 dark:text-blue-400">Aradhya Marya</span> 👋</h1>
     <p class="text-lg max-w-2xl mx-auto text-gray-600 dark:text-gray-300">I am passionate about Artificial Intelligence and Machine Learning, building real-world AI-powered applications like translators, chatbots, and APIs.</p>
     <p class="mt-4 text-xl text-gray-700 dark:text-gray-200"><span id="typing"></span></p>
@@ -144,7 +149,7 @@
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
 
   <script>
-    // Menu toggle
+    // Mobile menu
     document.getElementById("menu-btn").addEventListener("click", () => {
       document.getElementById("menu").classList.toggle("hidden");
     });
@@ -153,6 +158,11 @@
     document.getElementById("theme-toggle").addEventListener("click", () => {
       document.documentElement.classList.toggle("dark");
     });
+
+    // Chatbot toggle
+    function toggleChatbot() {
+      document.getElementById("chatbot").classList.toggle("active");
+    }
 
     // Typing animation
     new Typed("#typing", {
@@ -163,16 +173,18 @@
     });
 
     // Particles background
-    tsParticles.load("tsparticles", {
-      background: { color: "transparent" },
-      particles: {
-        number: { value: 70 },
-        color: { value: "#1a73e8" },
-        links: { enable: true, color: "#34a853", distance: 120 },
-        move: { enable: true, speed: 1 },
-        size: { value: 3 },
-        opacity: { value: 0.6 }
-      }
+    document.addEventListener("DOMContentLoaded", () => {
+      tsParticles.load("tsparticles", {
+        background: { color: "transparent" },
+        particles: {
+          number: { value: 70 },
+          color: { value: "#1a73e8" },
+          links: { enable: true, color: "#34a853", distance: 120 },
+          move: { enable: true, speed: 1 },
+          size: { value: 3 },
+          opacity: { value: 0.6 }
+        }
+      });
     });
   </script>
 </body>
