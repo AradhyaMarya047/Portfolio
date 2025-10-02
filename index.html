@@ -141,7 +141,6 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
 
   <script>
     // Mobile menu
@@ -201,18 +200,22 @@
     });
 
     // Background particles
-    window.addEventListener("load", () => {
-      tsParticles.load("tsparticles", {
-        background: { color: "transparent" },
-        particles: {
-          number: { value: 90 },
-          color: { value: "#1a73e8" },
-          links: { enable: true, color: "#34a853", distance: 120 },
-          move: { enable: true, speed: 1 },
-          size: { value: 3 },
-          opacity: { value: 0.6 }
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 120 },
+        "size": { "value": 3 },
+        "move": { "speed": 1 },
+        "line_linked": { "enable": false },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.6 }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" }
         }
-      });
+      }
     });
   </script>
 </body>
