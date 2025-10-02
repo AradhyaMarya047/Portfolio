@@ -117,6 +117,7 @@ section h2 {
   padding: 10px;
   border: none;
   outline: none;
+  width: calc(100% - 20px);
 }
 .chatbot button {
   padding: 8px 14px;
@@ -124,9 +125,28 @@ section h2 {
   color: white;
   border: none;
   cursor: pointer;
+  margin: 8px;
+  border-radius: 8px;
 }
 .chatbot button:hover {
   background: #1a73e8;
+}
+
+/* Chatbot Messages */
+.user-msg {
+  text-align: right;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: #e2e8f0;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.bot-msg {
+  text-align: left;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: #f1f5f9;
+  border-radius: 10px;
 }
 
 /* Background Particles Layer */
@@ -158,4 +178,11 @@ section h2 {
 }
 .dark .chat-header {
   background: #2563eb;
+}
+.dark .bot-msg {
+  background: #374151;
+}
+.dark .user-msg {
+  background: #4b5563;
+  color: #f9fafb;
 }
