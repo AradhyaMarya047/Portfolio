@@ -1,155 +1,178 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Background Animation */
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background: #0a0a0a;
-}
-
-/* Navbar */
-header {
-  position: fixed;
-  width: 100%;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(10, 10, 10, 0.85);
-  z-index: 1000;
-}
-
-header .logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
-}
-header .logo span {
-  color: #8a5cf6;
-}
-header nav ul {
-  display: flex;
-  gap: 20px;
-}
-header nav ul li {
-  list-style: none;
-}
-header nav ul li a {
-  text-decoration: none;
-  color: #ddd;
-  font-size: 16px;
-  transition: 0.3s;
-}
-header nav ul li a:hover {
-  color: #8a5cf6;
-}
-
-/* Hero Section */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
-  padding: 0 20px;
-}
-.hero h1 {
-  font-size: 48px;
-}
-.hero .highlight {
-  color: #8a5cf6;
-}
-.hero p {
-  margin: 15px 0;
-  font-size: 18px;
-  max-width: 650px;
-}
-.hero-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 15px;
-}
-.btn,
-.btn-outline {
-  padding: 12px 25px;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: 0.3s;
-}
-.btn {
-  background: #8a5cf6;
-  color: #fff;
-  border: none;
-}
-.btn:hover {
-  background: #6d3fd6;
-}
-.btn-outline {
-  border: 2px solid #8a5cf6;
-  color: #8a5cf6;
-  background: transparent;
-}
-.btn-outline:hover {
-  background: #8a5cf6;
-  color: #fff;
-}
-
-/* Sections */
+/* Section Spacing */
 section {
-  min-height: 100vh;
-  padding: 100px 20px;
-  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 section h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #8a5cf6;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #1a73e8;
 }
 
-/* Skills List */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+/* Hero */
+.hero {
+  padding: 6rem 2rem;
 }
-.skills-list li {
-  list-style: none;
-  padding: 8px 15px;
-  border: 1px solid #8a5cf6;
+
+/* Skills */
+.badge {
+  display: inline-block;
+  padding: 10px 16px;
   border-radius: 20px;
-  background: rgba(138, 92, 246, 0.1);
-  font-size: 15px;
+  background: #f1f5f9;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.badge:hover {
+  background: #1a73e8;
+  color: white;
 }
 
-/* Projects */
+/* Project Cards */
 .project-card {
-  background: rgba(20, 20, 20, 0.9);
-  border: 1px solid #8a5cf6;
   padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 15px;
-  transition: 0.3s;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: transform 0.3s;
 }
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 4px 15px rgba(138, 92, 246, 0.5);
+  transform: translateY(-6px);
+}
+
+/* Timeline */
+.timeline {
+  border-left: 3px solid #1a73e8;
+  padding-left: 1rem;
+}
+.timeline li {
+  margin-bottom: 1.5rem;
+}
+.timeline .content {
+  margin-left: 0.5rem;
 }
 
 /* Contact */
 #contact p {
-  font-size: 18px;
-  margin: 5px 0;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+#contact a {
+  color: #1a73e8;
+  font-weight: 600;
+  text-decoration: none;
+}
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* Chatbot */
+#chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 200;
+}
+#chatbot.active {
+  transform: translateY(0);
+}
+.chatbot {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.chat-header {
+  background: #1a73e8;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+.chat-messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+}
+#chat-input {
+  padding: 10px;
+  border: none;
+  outline: none;
+  width: calc(100% - 20px);
+}
+.chatbot button {
+  padding: 8px 14px;
+  background: #34a853;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 8px;
+  border-radius: 8px;
+}
+.chatbot button:hover {
+  background: #1a73e8;
+}
+
+/* Chatbot Messages */
+.user-msg {
+  text-align: right;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: #e2e8f0;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.bot-msg {
+  text-align: left;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+/* Background Particles */
+#tsparticles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+/* Dark Mode */
+.dark body {
+  background: #111827;
+  color: #f9fafb;
+}
+.dark .project-card {
+  background: #1f2937;
+  color: #f9fafb;
+}
+.dark .badge {
+  background: #374151;
+  color: #f9fafb;
+}
+.dark #chatbot {
+  background: #1f2937;
+  color: #f9fafb;
+}
+.dark .chat-header {
+  background: #2563eb;
+}
+.dark .bot-msg {
+  background: #374151;
+}
+.dark .user-msg {
+  background: #4b5563;
+  color: #f9fafb;
 }
