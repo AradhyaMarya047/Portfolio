@@ -35,7 +35,6 @@
       <a href="#education" class="hover:underline">Education</a>
       <a href="#contact" class="hover:underline">Contact</a>
       <a href="#" onclick="toggleChatbot(); return false;">Chatbot 🤖</a>
-      <button id="theme-toggle" class="ml-4 px-2 py-1 bg-blue-600 text-white rounded">🌙</button>
     </div>
   </nav>
 
@@ -144,13 +143,7 @@
     document.getElementById("menu-btn").addEventListener("click", () => {
       document.getElementById("menu").classList.toggle("hidden");
     });
-
-    // Dark mode toggle
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-    });
-
-
+    
     // Chatbot toggle
     function toggleChatbot() {
       document.getElementById("chatbot").classList.toggle("active");
