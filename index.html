@@ -70,15 +70,18 @@
   <!-- Projects -->
   <section id="projects">
     <h2><i class="fas fa-code"></i> Projects</h2>
-    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-1 max-w-5xl mx-auto">
       <div class="project-card">
-        <h3 class="text-xl font-semibold mb-2 text-purple-400"><i class="fas fa-language"></i> English → French Translator</h3>
-        <p>Fine-tuned MarianMT model and deployed with FastAPI + Docker. Includes monitoring for latency and memory usage.</p>
-      </div>
-      <div class="project-card">
-        <h3 class="text-xl font-semibold mb-2 text-cyan-400"><i class="fas fa-database"></i> Bankruptcy Prediction API</h3>
-        <p>Developed a machine learning API for company bankruptcy prediction. Deployed on cloud with FastAPI + Docker.</p>
-      </div>
+      <h3 class="text-xl font-semibold mb-2 text-purple-400">
+        <i class="fas fa-language"></i> English → French Translator
+      </h3>
+      <p>
+        Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100)
+      </p>
+      <a href="https://github.com/AradhyaMarya047/Translator" 
+         target="_blank" 
+         class="neon-btn mt-3 inline-block">🔗 View Project</a>
+    </div>
     </div>
   </section>
 
@@ -163,33 +166,41 @@
       chatInput.value = '';
     }
     function displayResponse(msg) {
-      const userMsg = document.createElement('p');
-      userMsg.textContent = msg;
-      userMsg.classList.add('user-msg');
-      chatMessages.appendChild(userMsg);
+  const userMsg = document.createElement('p');
+  userMsg.textContent = msg;
+  userMsg.classList.add('user-msg');
+  chatMessages.appendChild(userMsg);
 
-      const botReply = document.createElement('p');
-      botReply.classList.add('bot-msg');
+  const botReply = document.createElement('p');
+  botReply.classList.add('bot-msg');
 
-      let response = "I'm here to help! Ask me about skills, projects, work, education, or contact info.";
-      if (msg.toLowerCase().includes("about")) {
-        response = "About Me: I'm Aradhya, a 3rd-year AI student passionate about ML, NLP, and real-world AI applications.";
-      } else if (msg.toLowerCase().includes("skills")) {
-        response = "Skills: Python, TensorFlow, PyTorch, Scikit-learn, FastAPI, Docker, GitHub, Pandas, NumPy.";
-      } else if (msg.toLowerCase().includes("projects")) {
-        response = "Projects: Bankruptcy Prediction API (FastAPI + Docker), English→French Translator (MarianMT).";
-      } else if (msg.toLowerCase().includes("work")) {
-        response = "Work: Produce Associate @ Walmart (Mar 2024 - Present).";
-      } else if (msg.toLowerCase().includes("education")) {
-        response = "Education: Honours Bachelor in AI @ Durham College (2023–Present).";
-      } else if (msg.toLowerCase().includes("contact")) {
-        response = "Contact: Email - aradhyamarya@gmail.com | LinkedIn - linkedin.com/in/aradhya-marya-24aa01272 | GitHub - github.com/AradhyaMarya047";
-      }
+  const lowerMsg = msg.toLowerCase();
+  let response = "I'm here to help! Ask me about my skills, projects, work experience, education, or contact info.";
 
-      botReply.textContent = response;
-      chatMessages.appendChild(botReply);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
+  if (lowerMsg.includes("about") || lowerMsg.includes("who are you") || lowerMsg.includes("yourself")) {
+    response = "About Me: I'm Aradhya Marya, a 3rd-year AI student passionate about Machine Learning, NLP, and building real-world AI solutions.";
+  } 
+  else if (lowerMsg.includes("skill") || lowerMsg.includes("technology") || lowerMsg.includes("tools")) {
+    response = "Skills: Python, TensorFlow, PyTorch, Scikit-learn, FastAPI, Docker, GitHub, Pandas, NumPy.";
+  } 
+  else if (lowerMsg.includes("project") || lowerMsg.includes("work on") || lowerMsg.includes("built")) {
+    response = "Projects: Bankruptcy Prediction API (FastAPI + Docker), English→French Translator (MarianMT).";
+  } 
+  else if (lowerMsg.includes("work") || lowerMsg.includes("job") || lowerMsg.includes("experience")) {
+    response = "Work: Produce Associate @ Walmart (Mar 2024 - Present).";
+  } 
+  else if (lowerMsg.includes("education") || lowerMsg.includes("study") || lowerMsg.includes("college") || lowerMsg.includes("school")) {
+    response = "Education: Honours Bachelor in AI @ Durham College (2023–Present) | Rigveda International School, India (2015–2022).";
+  } 
+  else if (lowerMsg.includes("contact") || lowerMsg.includes("email") || lowerMsg.includes("linkedin") || lowerMsg.includes("github")) {
+    response = "Contact: Email - aradhyamarya@gmail.com | LinkedIn - linkedin.com/in/aradhya-marya-24aa01272 | GitHub - github.com/AradhyaMarya047";
+  } 
+
+  botReply.textContent = response;
+  chatMessages.appendChild(botReply);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
     chatInput.addEventListener("keypress", function(e) {
       if (e.key === "Enter") sendMessage();
     });
