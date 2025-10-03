@@ -49,6 +49,22 @@ section h2 {
   transform: translateY(-6px);
   box-shadow: 0 0 20px #9333ea, 0 0 40px #06b6d4;
 }
+.neon-btn {
+  background: #06b6d4;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  box-shadow: 0 0 8px #06b6d4, 0 0 16px #9333ea;
+  transition: 0.3s;
+}
+.neon-btn:hover {
+  box-shadow: 0 0 12px #0ea5e9, 0 0 24px #9333ea;
+}
+
 
 /* Timeline */
 .timeline {
