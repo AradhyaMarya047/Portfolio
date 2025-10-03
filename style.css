@@ -8,7 +8,8 @@ section h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
   font-weight: 700;
-  color: #1a73e8;
+  color: #06b6d4; /* cyan neon */
+  text-shadow: 0 0 8px #06b6d4, 0 0 16px #9333ea;
 }
 
 /* Hero */
@@ -16,36 +17,42 @@ section h2 {
   padding: 6rem 2rem;
 }
 
-/* Skills */
+/* Skills Badges */
 .badge {
   display: inline-block;
   padding: 10px 16px;
   border-radius: 20px;
-  background: #f1f5f9;
+  background: #1f2937;
   font-weight: 600;
+  color: #f9fafb;
   transition: all 0.3s;
+  box-shadow: 0 0 6px #06b6d4;
 }
 .badge:hover {
-  background: #1a73e8;
+  background: #9333ea;
   color: white;
+  box-shadow: 0 0 10px #9333ea, 0 0 20px #06b6d4;
 }
 
 /* Project Cards */
 .project-card {
   padding: 20px;
-  background: #fff;
+  background: #111827;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid #06b6d4;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
   text-align: left;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #f9fafb;
 }
 .project-card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 0 20px #9333ea, 0 0 40px #06b6d4;
 }
 
 /* Timeline */
 .timeline {
-  border-left: 3px solid #1a73e8;
+  border-left: 3px solid #06b6d4;
   padding-left: 1rem;
 }
 .timeline li {
@@ -53,6 +60,7 @@ section h2 {
 }
 .timeline .content {
   margin-left: 0.5rem;
+  color: #f9fafb;
 }
 
 /* Contact */
@@ -61,25 +69,26 @@ section h2 {
   margin: 0.5rem 0;
 }
 #contact a {
-  color: #1a73e8;
+  color: #06b6d4;
   font-weight: 600;
   text-decoration: none;
+  transition: 0.3s;
 }
 #contact a:hover {
-  text-decoration: underline;
+  text-shadow: 0 0 8px #06b6d4, 0 0 16px #9333ea;
 }
 
-/* Chatbot */
+/* Chatbot Popup */
 #chatbot {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 350px;
   height: 500px;
-  background: #1f2937; /* dark background */
-  color: #f9fafb;      /* white text */
+  background: #0f172a; /* darker */
+  color: #f9fafb;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px #06b6d4, 0 0 40px #9333ea;
   transform: translateY(100%);
   transition: transform 0.4s ease;
   z-index: 200;
@@ -93,11 +102,12 @@ section h2 {
   height: 100%;
 }
 .chat-header {
-  background: #2563eb;
+  background: #1e3a8a;
   color: #fff;
   padding: 12px;
   text-align: center;
   font-weight: bold;
+  text-shadow: 0 0 10px #06b6d4;
 }
 .chat-messages {
   flex: 1;
@@ -115,15 +125,18 @@ section h2 {
 }
 .chatbot button {
   padding: 8px 14px;
-  background: #34a853;
+  background: #22c55e;
   color: white;
   border: none;
   cursor: pointer;
   margin: 8px;
   border-radius: 8px;
+  box-shadow: 0 0 10px #22c55e;
+  transition: 0.3s;
 }
 .chatbot button:hover {
-  background: #2563eb;
+  background: #16a34a;
+  box-shadow: 0 0 15px #22c55e, 0 0 30px #9333ea;
 }
 
 /* Chatbot Messages */
@@ -131,19 +144,20 @@ section h2 {
   text-align: right;
   padding: 8px 12px;
   margin: 6px 0;
-  background: #4b5563;
+  background: #374151;
   border-radius: 10px;
   color: #f9fafb;
+  box-shadow: 0 0 8px #06b6d4;
 }
 .bot-msg {
   text-align: left;
   padding: 8px 12px;
   margin: 6px 0;
-  background: #374151;
+  background: #1e293b;
   border-radius: 10px;
   color: #f9fafb;
+  box-shadow: 0 0 8px #9333ea;
 }
-
 
 /* Background Particles */
 #particles-js {
@@ -153,5 +167,5 @@ section h2 {
   top: 0;
   left: 0;
   z-index: -1;
-  background: #0a0a0a;
+  background: #000;
 }
