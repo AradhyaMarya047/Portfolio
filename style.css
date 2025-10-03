@@ -36,7 +36,24 @@ section h2 {
   box-shadow: 0 0 20px #06b6d4, 0 0 40px #9333ea;
   background: #1f2937;
 }
-
+/* About Me Section */
+#aboutme {
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#aboutme h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #06b6d4;
+  text-shadow: 0 0 8px #06b6d4, 0 0 16px #9333ea;
+}
+#aboutme p {
+  color: #d1d5db;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
 
 /* Skills Badges */
 .badge {
