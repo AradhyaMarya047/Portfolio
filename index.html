@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
 <html lang="en" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +6,7 @@
   <title>Aradhya Marya | AI Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,37 +17,37 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-[Inter] transition-colors duration-500 relative">
+<body class="bg-black text-gray-100 font-[Inter] relative">
 
   <!-- Background Animation -->
   <div id="particles-js"></div>
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-white/80 backdrop-blur shadow-md sticky top-0 z-50">
-    <h1 class="text-2xl font-bold text-blue-600">Aradhya Marya</h1>
-    <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
-    <div id="menu" class="hidden md:flex space-x-6 font-semibold">
-      <a href="#about" class="hover:underline">About</a>
-      <a href="#skills" class="hover:underline">Skills</a>
-      <a href="#projects" class="hover:underline">Projects</a>
-      <a href="#work" class="hover:underline">Work</a>
-      <a href="#education" class="hover:underline">Education</a>
-      <a href="#contact" class="hover:underline">Contact</a>
-      <a href="#" onclick="toggleChatbot(); return false;">Chatbot 🤖</a>
+  <nav class="flex justify-between items-center px-6 py-4 bg-gray-900/90 backdrop-blur shadow-md sticky top-0 z-50 border-b border-cyan-500">
+    <h1 class="text-2xl font-bold text-cyan-400 font-[Orbitron]">Aradhya Marya</h1>
+    <button id="menu-btn" class="md:hidden text-2xl text-cyan-400"><i class="fas fa-bars"></i></button>
+    <div id="menu" class="hidden md:flex space-x-6 font-semibold text-gray-200">
+      <a href="#about" class="hover:text-cyan-400">About</a>
+      <a href="#skills" class="hover:text-cyan-400">Skills</a>
+      <a href="#projects" class="hover:text-cyan-400">Projects</a>
+      <a href="#work" class="hover:text-cyan-400">Work</a>
+      <a href="#education" class="hover:text-cyan-400">Education</a>
+      <a href="#contact" class="hover:text-cyan-400">Contact</a>
+      <a href="#" onclick="toggleChatbot(); return false;" class="hover:text-purple-400">Chatbot 🤖</a>
     </div>
   </nav>
 
   <!-- Hero -->
   <section id="about" class="hero text-center relative z-10">
-    <h1 class="text-5xl md:text-6xl font-bold mb-4">Hi, I’m <span class="text-blue-600 dark:text-blue-400">Aradhya Marya</span> 👋</h1>
-    <p class="text-lg max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4 text-cyan-400 font-[Orbitron]">Hi, I’m Aradhya Marya 👋</h1>
+    <p class="text-lg max-w-2xl mx-auto text-gray-300">
       I am a 3rd-year Artificial Intelligence student with a strong foundation in Python, machine learning, data analysis, and neural networks.
       Passionate about solving real-world problems with AI and continuously learning cutting-edge technologies.
     </p>
-    <p class="mt-4 text-xl text-gray-700 dark:text-gray-200"><span id="typing"></span></p>
+    <p class="mt-4 text-xl text-purple-400"><span id="typing"></span></p>
     <div class="mt-6 space-x-4">
-      <a href="Resume.pdf" download class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition">Download Resume</a>
-      <a href="#projects" class="bg-gray-200 dark:bg-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">View Projects</a>
+      <a href="Resume.pdf" download class="neon-btn">Download Resume</a>
+      <a href="#projects" class="neon-btn-alt">View Projects</a>
     </div>
   </section>
 
@@ -56,15 +55,15 @@
   <section id="skills">
     <h2><i class="fas fa-lightbulb"></i> Skills</h2>
     <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-      <span class="badge"><i class="fab fa-python"></i> Python</span>
-      <span class="badge"><i class="fab fa-html5"></i> HTML & CSS</span>
-      <span class="badge"><i class="fab fa-java"></i> Java</span>
-      <span class="badge"><i class="fas fa-robot"></i> TensorFlow</span>
-      <span class="badge"><i class="fas fa-cogs"></i> PyTorch</span>
-      <span class="badge"><i class="fas fa-brain"></i> Scikit-learn</span>
-      <span class="badge"><i class="fas fa-database"></i> Pandas & NumPy</span>
-      <span class="badge"><i class="fab fa-git-alt"></i> Git & GitHub</span>
-      <span class="badge"><i class="fas fa-server"></i> FastAPI & Docker</span>
+      <span class="badge">Python</span>
+      <span class="badge">HTML & CSS</span>
+      <span class="badge">Java</span>
+      <span class="badge">TensorFlow</span>
+      <span class="badge">PyTorch</span>
+      <span class="badge">Scikit-learn</span>
+      <span class="badge">Pandas & NumPy</span>
+      <span class="badge">Git & GitHub</span>
+      <span class="badge">FastAPI & Docker</span>
     </div>
   </section>
 
@@ -73,8 +72,12 @@
     <h2><i class="fas fa-code"></i> Projects</h2>
     <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
       <div class="project-card">
-        <h3 class="text-xl font-semibold mb-2"><i class="fas fa-language"></i> English → French Translator</h3>
-        <p>Real-time multilingual translation using Google Translator API and Transformer-based models (M2M100).</p>
+        <h3 class="text-xl font-semibold mb-2 text-purple-400"><i class="fas fa-language"></i> English → French Translator</h3>
+        <p>Fine-tuned MarianMT model and deployed with FastAPI + Docker. Includes monitoring for latency and memory usage.</p>
+      </div>
+      <div class="project-card">
+        <h3 class="text-xl font-semibold mb-2 text-cyan-400"><i class="fas fa-database"></i> Bankruptcy Prediction API</h3>
+        <p>Developed a machine learning API for company bankruptcy prediction. Deployed on cloud with FastAPI + Docker.</p>
       </div>
     </div>
   </section>
@@ -85,8 +88,8 @@
     <ul class="timeline max-w-3xl mx-auto text-left">
       <li>
         <div class="content">
-          <h3 class="font-semibold">Produce Associate – Walmart</h3>
-          <span class="text-sm text-gray-500">March 2024 – Present</span>
+          <h3 class="font-semibold text-cyan-400">Produce Associate – Walmart</h3>
+          <span class="text-sm text-gray-400">March 2024 – Present</span>
           <p>Coordinated stock levels, managed inventory rotations, ensured product quality, and provided excellent customer service.</p>
         </div>
       </li>
@@ -99,14 +102,14 @@
     <ul class="timeline max-w-3xl mx-auto text-left">
       <li>
         <div class="content">
-          <h3 class="font-semibold">Durham College, Oshawa</h3>
-          <span class="text-sm text-gray-500">Honours Bachelor in Artificial Intelligence (2023 – Present)</span>
+          <h3 class="font-semibold text-purple-400">Durham College, Oshawa</h3>
+          <span class="text-sm text-gray-400">Honours Bachelor in Artificial Intelligence (2023 – Present)</span>
         </div>
       </li>
       <li>
         <div class="content">
-          <h3 class="font-semibold">Rigveda International School, India</h3>
-          <span class="text-sm text-gray-500">High School (2015 – 2022)</span>
+          <h3 class="font-semibold text-purple-400">Rigveda International School, India</h3>
+          <span class="text-sm text-gray-400">High School (2015 – 2022)</span>
         </div>
       </li>
     </ul>
@@ -115,13 +118,13 @@
   <!-- Contact -->
   <section id="contact">
     <h2><i class="fas fa-address-book"></i> Contact</h2>
-    <p><i class="fas fa-envelope"></i> <a href="mailto:aradhyamarya@gmail.com">aradhyamarya@gmail.com</a></p>
-    <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank">LinkedIn</a></p>
-    <p><i class="fab fa-github"></i> <a href="https://github.com/AradhyaMarya047" target="_blank">GitHub</a></p>
+    <p>Email: <a href="mailto:aradhyamarya@gmail.com" class="text-cyan-400">aradhyamarya@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/aradhya-marya-24aa01272" target="_blank" class="text-cyan-400">linkedin.com/in/aradhya-marya-24aa01272</a></p>
+    <p>GitHub: <a href="https://github.com/AradhyaMarya047" target="_blank" class="text-cyan-400">github.com/AradhyaMarya047</a></p>
   </section>
 
   <!-- Footer -->
-  <footer class="py-6 bg-gray-100 dark:bg-gray-800 text-center text-gray-600 dark:text-gray-300 relative z-10">
+  <footer class="py-6 bg-gray-900 text-center text-gray-400 relative z-10 border-t border-cyan-500">
     <p>© 2025 Aradhya Marya · All Rights Reserved</p>
   </footer>
 
@@ -137,19 +140,20 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
   <script>
     // Mobile menu
     document.getElementById("menu-btn").addEventListener("click", () => {
       document.getElementById("menu").classList.toggle("hidden");
     });
-    
+
     // Chatbot toggle
     function toggleChatbot() {
       document.getElementById("chatbot").classList.toggle("active");
     }
 
-    // Chatbot logic
+    // Chatbot logic (enhanced)
     const chatMessages = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
     function sendMessage() {
@@ -166,15 +170,23 @@
 
       const botReply = document.createElement('p');
       botReply.classList.add('bot-msg');
-      if (msg.toLowerCase().includes("skills")) {
-        botReply.textContent = "My skills: Python, ML, Deep Learning, FastAPI, Docker, GitHub.";
+
+      let response = "I'm here to help! Ask me about skills, projects, work, education, or contact info.";
+      if (msg.toLowerCase().includes("about")) {
+        response = "About Me: I'm Aradhya, a 3rd-year AI student passionate about ML, NLP, and real-world AI applications.";
+      } else if (msg.toLowerCase().includes("skills")) {
+        response = "Skills: Python, TensorFlow, PyTorch, Scikit-learn, FastAPI, Docker, GitHub, Pandas, NumPy.";
       } else if (msg.toLowerCase().includes("projects")) {
-        botReply.textContent = "Projects: Translator Service.";
+        response = "Projects: Bankruptcy Prediction API (FastAPI + Docker), English→French Translator (MarianMT).";
+      } else if (msg.toLowerCase().includes("work")) {
+        response = "Work: Produce Associate @ Walmart (Mar 2024 - Present).";
       } else if (msg.toLowerCase().includes("education")) {
-        botReply.textContent = "Education: Honours Bachelor in AI @ Durham College.";
-      } else {
-        botReply.textContent = "Ask me about skills, projects, education, or work!";
+        response = "Education: Honours Bachelor in AI @ Durham College (2023–Present).";
+      } else if (msg.toLowerCase().includes("contact")) {
+        response = "Contact: Email - aradhyamarya@gmail.com | LinkedIn - linkedin.com/in/aradhya-marya-24aa01272 | GitHub - github.com/AradhyaMarya047";
       }
+
+      botReply.textContent = response;
       chatMessages.appendChild(botReply);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
@@ -184,24 +196,22 @@
 
     // Typing animation
     new Typed("#typing", {
-      strings: ["AI Developer", "ML Engineer", "Problem Solver"],
+      strings: ["AI Developer", "ML Engineer", "Futuristic Thinker"],
       typeSpeed: 60,
       backSpeed: 40,
       loop: true
     });
-    </script>
 
     // Background particles
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
     particlesJS("particles-js", {
       "particles": {
-        "number": { "value": 120 },
+        "number": { "value": 100 },
         "size": { "value": 3 },
         "move": { "speed": 1 },
         "line_linked": { "enable": false },
         "shape": { "type": "circle" },
-        "opacity": { "value": 0.6 }
+        "opacity": { "value": 0.6 },
+        "color": { "value": ["#06b6d4","#9333ea","#3b82f6"] }
       },
       "interactivity": {
         "events": {
